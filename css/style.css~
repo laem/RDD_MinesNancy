@@ -792,17 +792,6 @@ nav {
  border: 1px dotted #CCCCCC;
     margin: 5px 8px 40px;
 }
-
-.team-member {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 0 none;
-    float: left;
-    height: 190px;
-    margin: 6px 9px 41px;
-    padding: 5px;
-    text-align: center;
-    width: 95px;
-}
 .team-member .name {
     font-size: 12px;
     margin: 20px 0 0;
@@ -819,4 +808,20 @@ figure figcaption{
 	bottom:0px;
 	margin-bottom:0px;
 	width:80px;
+}
+
+/* Espace Elèves */
+#espace_eleves {
+	margin-top:15px;
+}
+#espace_eleves a {
+	color:#7D6865;
+	font-family: "LeagueGothicRegular",Arial,Helvetica,sans-serif;
+	text-transform:uppercase;
+	font-size:25px;
+	text-decoration:none;
+	border:1px solid #FFBB2F;	
+}
+#espace_eleves abbr[title]{
+	border-style:none;
 }
