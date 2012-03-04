@@ -207,7 +207,7 @@ ul.ps_nav{
 	margin:0;
 	padding:0;
 	width:100px; /*change this width*/
-	margin:20px auto;
+	margin:10px auto;
 	position:relative;
 	
 	
@@ -648,15 +648,25 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
         list-style:none;  
     }  
     .tabs li{  
-        display:inline;  
+        display:inline;
     }  
     .tabs li a{  
-        text-decoration:none; padding:4px 20px 4px 20px;  
+        text-decoration:none; padding:4px 15px 4px 15px;  
         margin-right:5px;  
         background:#E9DEDB;  
         color:#333; outline:none;  
         border:2px solid #D1C6C1;
     }  
+    .tabs-promo li a {  
+        text-decoration:none; padding:4px 10px 4px 10px; 
+        font-size: 12px;
+        margin-right:5px;  
+        background:#E9DEDB;  
+        color:#333; outline:none;  
+        border:2px solid #D1C6C1;
+	float:left;
+    } 
+    
     .tabs li a:hover{  
         color:#111;  
     }  
