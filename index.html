@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<!-- This website is based on the HTML5 Single Page Portfolio created by WebDesignerAid.com for Speckyboy -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Remise des Diplômes - Mines Nancy Promotion 09</title>
 <link href="css/reset.css" rel="stylesheet" media="screen">
@@ -26,7 +28,7 @@
         <li id="nav-2"><a href="#calendrier">Calendrier</a></li>
         <li id="nav-3"><a href="#guide">Guide de Nancy</a></li>
         <li id="nav-4"><a href="#contact">Contact</a></li>
-        <li id="nav-5"><a href="#contact">Parrain de promotion</a></li>     
+        <li id="nav-5"><a href="#contact">Parrain de promo</a></li>     
         <li id="nav-6"><a href="#promo">Promotion 09</a></li>           
       </ul>
       <div class="bg_bottom"></div>
@@ -40,6 +42,9 @@
   </aside>
   <div id="main-content">
   	<section id="top"></section><!-- do not remove ;)-->
+  	 <!--------------- 
+      SECTION : Home 
+      ----------------->
     <section id="home">
 
       
@@ -248,30 +253,55 @@
       ----------------->
     <section id="contact" class="clearfix">
       <header>
-        <h2>Get in touch</h2>
+        <h2>Contactez-nous !</h2>
       </header>
       
-      <form action="#" method="post">
-      	<p><input type="text" name="name"  value="Your Name" id="name" onblur="if (this.value == ''){this.value = 'Your Name'; }" onfocus="if (this.value == 'Your Name') {this.value = '';}" /></p>
-        <p><input type="text" name="email" value="Your Email" id="email"  onblur="if (this.value == ''){this.value = 'Your Email'; }" onfocus="if (this.value == 'Your Email') {this.value = '';}" /></p>
-        <p><input type="text" name="url" value="Your Site" id="url" onblur="if (this.value == ''){this.value = 'Your Site'; }" onfocus="if (this.value == 'Your Site') {this.value = '';}" /></p>
-        <p><textarea cols="20" rows="7" name="message" id="message" onblur="if (this.value == ''){this.value = 'Your Message'; }" onfocus="if (this.value == 'Your Message') {this.value = '';}" >Your Message</textarea></p>
-        <p><input type="submit" name="submit" value="Send Message" class="button" /></p>
-      </form>
-      <div class="social_wrapper">
-        	<h3>Where to find me?</h3>
-            <ul class="social">
-            	<li class="dribble"><a href="#">Dribble</a></li>
-                <li class="twitter"><a href="#">Twitter</a></li>
-                <li class="lastfm"><a href="#">Last FM</a></li>
-                <li class="facebook"><a href="#">Facebook</a></li>
-                <li class="location"><a href="#">Location</a></li>
-                <li class="forrst"><a href="#">Forrst</a></li>
-            </ul>
-        </div>
+      <div id="tabs-wrapper">
+	    <ul class="tabs tabs-contact">
+		<li class="active"><a href="#contact1">Notre équipe</a></li>
+		<li><a href="#contact2">L'école</a></li>		
+	    </ul>
+	 
+	    <div class="tab-content" id="contact1">
+	 	 
+	 	<figure class="team-member">
+		  <img src="images/team/benoit.jpg" alt="Benoît"
+		  width="80" height="80" />
+		  	<figcaption>
+		  		<div class="name">Benoît</div>
+				<div class="title">Président</div>
+			</figcaption>
+		</figure> 
+		
+		<figure class="team-member">
+		  <img src="images/team/juliette.jpg" alt="Juliette"
+		  width="80" height="80" />
+		  	<figcaption>
+		  		<div class="name">Juliette</div>
+				<div class="title">Gâteaux</div>
+			</figcaption>
+		</figure> 
+	 	 
+	    </div>
+	    
+	    <div class="tab-content" id="contact2">
+	    
+	    	<p><a href="http://www.mines.inpl-nancy.fr">École des Mines de Nancy</p>
+
+		<p><em>Paul Leiritz </em>, responsable Communication de l'Ecole des Mines de Nancy</p> <br/>
+		<p><a href="mailto:leiritz@mines.inpl-nancy.fr?Subject=RDD09"> Téléphone : +33 (0)3 83 58 43 10 </p>
+		<figure>
+			<img src="images/ecoleMines_petit.jpg" alt="Ecole des Mines de Nancy" />
+		</figure>
+	    
+	    </div>
+	    
+	    
+      </div>
+      
         
       <div class="copyright">
-      	<p><small>This <abbr title="Hypertext Markup Language 5">HTML5</abbr> Single Page Portfolio was created <em>by</em> <a href="http://webdesigneraid.com/">WebDesignerAid.com</a> <em>for</em> <a href="http://speckyboy.com/">Speckyboy</a></small></p>
+      	<p><small>Remise des diplômes 2012 de l'<abbr title="Ecole Nationale Supérieure des Mines de Nancy">ENSMN</abbr> - Promotion 2009 </small></p>
       </div><!--end copyright-->
     </section> <!--end section-->
   </div>

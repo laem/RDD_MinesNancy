@@ -658,15 +658,15 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
         border:2px solid #D1C6C1;
     }  
     .tabs-promo li a {  
-        text-decoration:none; padding:4px 10px 4px 10px; 
+        padding:4px 10px 4px 10px; 
         font-size: 12px;
-        margin-right:5px;  
-        background:#E9DEDB;  
-        color:#333; outline:none;  
-        border:2px solid #D1C6C1;
 	float:left;
+	margin-top:5px;
     } 
-    
+    .tabs-contact li a {  
+        padding:4px 80px 4px 80px; 
+        font-size: 14px;
+    } 
     .tabs li a:hover{  
         color:#111;  
     }  
@@ -786,3 +786,37 @@ nav {
 	top:140px;
 }
 
+/* L'équipe */
+
+.team-member{
+ border: 1px dotted #CCCCCC;
+    margin: 5px 8px 40px;
+}
+
+.team-member {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    float: left;
+    height: 190px;
+    margin: 6px 9px 41px;
+    padding: 5px;
+    text-align: center;
+    width: 95px;
+}
+.team-member .name {
+    font-size: 12px;
+    margin: 20px 0 0;
+    text-align: center;
+}
+.team-member .title {
+    color: #888888;
+    font-size: 11px;
+    margin: 2px 0 0;
+    text-align: center;
+}
+figure figcaption{
+	position:static;
+	bottom:0px;
+	margin-bottom:0px;
+	width:80px;
+}
