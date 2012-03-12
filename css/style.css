@@ -794,6 +794,7 @@ nav {
 .team-member{
  border: 1px dotted #CCCCCC;
     margin: 5px 8px 40px;
+    height:123px;
 }
 .team-member .name {
     font-size: 12px;
@@ -806,6 +807,7 @@ nav {
     margin: 2px 0 0;
     text-align: center;
 }
+
 figure figcaption{
 	position:static;
 	bottom:0px;

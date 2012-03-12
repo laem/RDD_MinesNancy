@@ -664,7 +664,7 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
 	margin-top:5px;
     } 
     .tabs-list{
-    	padding-top:120px
+    	padding-top:120px;
     }
     .tabs-contact li a {  
         padding:4px 80px 4px 80px; 
