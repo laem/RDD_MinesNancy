@@ -6,6 +6,7 @@ $utilisateur=null;
 if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
 }
+phpinfo();
 ?>
     
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -215,7 +216,7 @@ if(isset($_POST["login"])){
 	</style> 
         
         <!-- Load Queue widget CSS and jQuery -->
-    <style type="text/css">@import url(/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css);</style>
+    <style type="text/css">@import url(plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css);</style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     
     <!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
