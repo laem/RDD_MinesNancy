@@ -11,7 +11,7 @@ $repertoireDestination = dirname(__FILE__). DIRECTORY_SEPARATOR ."pdf";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
 
 if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
-	if (rename($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination)) {
+	if (copy($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination)) {
 		
 		//recherche d'une éventuelle ancienne image et suppression
 		$sql2="Select photo_yearbook from espace_eleve where identifiant='".($_POST['login'])."'";
