@@ -245,7 +245,7 @@ if(isset($_POST["login"])){
 			// General settings
 			runtimes : 'html5',
 			url : 'upload.php?utilisateur=<?php echo $utilisateur; ?>',
-			max_file_size : '300mb',
+			max_file_size : '500mb',
 			chunk_size : '1000mb',
 			//unique_names : true,
 			multiple_queues : true
@@ -256,7 +256,7 @@ if(isset($_POST["login"])){
 		// General settings
 		runtimes : 'flash',
 		url : 'upload.php?utilisateur=<?php echo $utilisateur; ?>',
-		max_file_size : '300mb',
+		max_file_size : '500mb',
 		chunk_size : '1000mb',
 		//unique_names : true,
 		multiple_queues : true,
@@ -438,7 +438,7 @@ if(isset($_POST['deconnection']) || (!isset($_POST["login"]) || !isset($_POST["m
 	<br>
     <p style="text-align:right">L'équipe RDD 09</p>
     <p>
-    <center><img src="/pdf/fleche_bas.jpg"></center>
+    <center><img src="pdf/fleche_bas.jpg"></center>
     </fieldset>
 
 			<form name="espace_perso" method="post" action="profil_util.php">
@@ -667,7 +667,7 @@ if(mysql_num_rows($req)==0){
             Total
             <strong></td>
             <td id="prix_total" style="color:red"><strong><font size="+1">
-            '.($superpack*63+$pack*60+$dvd*5+$lampe*42+$yearbook*15+$poster*5)." €".'
+            '.($superpack*63+$pack*59+$dvd*5+$lampe*42+$yearbook*15+$poster*5)." €".'
             </strong></td>
             </tr>
             </table>
@@ -748,7 +748,7 @@ if(mysql_num_rows($req)==0){
             <table style="border:hidden">
             <tr>
             <td>
-            <img src="/pdf/dvd.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="pdf/dvd.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px""><font size="+0">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Et voici pour toi un super DVD : il contient l'ensemble des JTM de tes 2 années aux mines ainsi que celui qui sera diffusé pendant la semaine de la RDD. Et comme on n'est pas radins, on rajoute aussi l'ensemble des films diffusés pendant ta présence aux Mines (films de campagne Forum, JE, BDE, amphis de présentation,...) ainsi que toutes les musiques mythiques de ta scolarité ! Et plein d'autres bonus !!
@@ -762,7 +762,7 @@ if(mysql_num_rows($req)==0){
             <fieldset>
              <center><label for="nbr_dvd">Nombre de DVD commandés :</label>
 			<input type="text" id="nbr_dvd" name="nbr_dvd" value="<?php echo mysql_result($req,0,'nbr_dvd'); ?>" style="width:50px" readonly/>
-            &nbsp;&nbsp;&nbsp;<img src="/pdf/moins.png" alt="Pas d'image chargée" onClick="moins_dvd();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/pdf/plus.png" alt="Pas d'image chargée" onClick="plus_dvd();"/>
+            &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_dvd();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_dvd();"/>
             </fieldset>
 			<br>
             
@@ -770,7 +770,7 @@ if(mysql_num_rows($req)==0){
             <table style="border:hidden">
             <tr>
             <td>
-            <a href="/pdf/lampe.jpg" target="_blank"><img src="/pdf/lampe.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/pdf/lampe.jpg" target="_blank"><img src="pdf/lampe.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br>(cliquez pour agrandir)
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
@@ -785,7 +785,7 @@ if(mysql_num_rows($req)==0){
             <fieldset>
             <center><label for="nbr_lampes">Nombre de lampes commandées :</label>
 			<input type="text" id="nbr_lampes" name="nbr_lampes" value="<?php echo mysql_result($req,0,'nbr_lampes'); ?>"  style="width:50px" readonly />
-            &nbsp;&nbsp;&nbsp;<img src="/pdf/moins.png" alt="Pas d'image chargée" onClick="moins_lampe();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/pdf/plus.png" alt="Pas d'image chargée" onClick="plus_lampe();"/>
+            &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_lampe();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_lampe();"/>
             <br>
             <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merci de ne pas dépasser 12 caractères par ligne. Compte tenu des contraintes de la gravure laser et de la courbure de la surface, nous ne pouvons vous garantir un résultat parfait au delà.</strong> <br>Si ton nom est trop long pour tenir sur une ligne, laisse la ligne du nom vide et <a href="mailto:alex.gapin@mines.inpl-nancy.fr">contacte Alex</a> <font size="-2">Il y a toujours une solution ! ;)</font>
 			</fieldset>
@@ -812,7 +812,7 @@ if(mysql_num_rows($req)==0){
             <table style="border:hidden">
             <tr>
             <td>
-            <img src="/pdf/yearbook.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="pdf/yearbook.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" ><font size="+0">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le Yearbook : un recueil de 100 pages qui récapitule tes 2 (voire 3) années aux Mines en photos. C'est un objet souvenir incontournable de toute remise des diplômes. 
@@ -827,7 +827,7 @@ if(mysql_num_rows($req)==0){
             <fieldset>
             <center><label for="nbr_yearbook">Nombre de Yearbook commandés :</label>
 			<input type="text" id="nbr_yearbook" name="nbr_yearbook" value="<?php echo mysql_result($req,0,'nbr_yearbook'); ?>"  style="width:50px" readonly/>
-            &nbsp;&nbsp;&nbsp;<img src="/pdf/moins.png" alt="Pas d'image chargée" onClick="moins_yearbook();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/pdf/plus.png" alt="Pas d'image chargée" onClick="plus_yearbook();"/>
+            &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_yearbook();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_yearbook();"/>
             </fieldset>
 			<br>
             
@@ -835,7 +835,7 @@ if(mysql_num_rows($req)==0){
             <table style="border:hidden">
             <tr>
             <td>
-            <img src="/pdf/poster.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="pdf/poster.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un magnifique poster sur lequel il y a toute la promo et qui sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.
@@ -852,7 +852,7 @@ if(mysql_num_rows($req)==0){
             <fieldset>
             <center><label for="nbr_poster">Nombre de posters commandés :</label>
 			<input type="text" id="nbr_poster" name="nbr_poster" value="<?php echo mysql_result($req,0,'nbr_poster'); ?>"  style="width:50px" readonly/>
-            &nbsp;&nbsp;&nbsp;<img src="/pdf/moins.png" alt="Pas d'image chargée" onClick="moins_poster();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/pdf/plus.png" alt="Pas d'image chargée" onClick="plus_poster();"/>
+            &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_poster();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_poster();"/>
             </fieldset>
             <fieldset>
             <table style="border:hidden">
@@ -864,7 +864,7 @@ if(mysql_num_rows($req)==0){
             </tr>
             <tr>
             <td style="text-align:justify" style="text-indent:"6px"" > 
-            <center><span id="cadeau"><img src="/pdf/pack.jpg" alt="Pas d'image chargée" height="180px" style="margin-right:"100 px/ onClick="this.src='/pdf/rosbif.png'"></span><br><font size="+0">
+            <center><span id="cadeau"><img src="pdf/pack.jpg" alt="Pas d'image chargée" height="180px" style="margin-right:"100 px/ onClick="this.src='/pdf/rosbif.png'"></span><br><font size="+0">
             Si tu achètes un DVD, une lampe et un yearbook, la RDD te propose un pack qui te permet de réaliser 3 € d'économies. </font>
             <br>
 
