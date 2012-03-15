@@ -9,6 +9,10 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 //Récupération de l'image
 $repertoireDestination = dirname(__FILE__)."/pdf";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
+$error = $_FILES['photo_yearbook']['error'];
+echo $error;
+$retour = up_error($error,$_FILES["photo_yearbook"]["tmp_name"]);
+echo $retour;
 if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 	if (rename($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination.$nomDestination)) {
 		
@@ -36,7 +40,6 @@ if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 	}
 	else {
 		echo "Le déplacement du fichier temporaire a échoué"." vérifiez l'existence du répertoire ".$repertoireDestination;
-		echo $error = $_FILES['photo_yearbook']['error'];
 	}          
 } 
 else {
