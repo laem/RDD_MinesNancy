@@ -2,15 +2,22 @@
 include('sql_conf.php'); 
 $db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
+$utilisateur=null; 
+if(isset($_POST["login"])){
+	$utilisateur=$_POST["login"];
+}
 ?>
     
-    <!DOCTYPE html>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html lang="fr"> 
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
     
 
 <head>
 	<style type="text/css"> 
+	@font-face { font-family : 'Yanone Kaffeesatz';
+	src: url('font/YanoneKaffeesatz-Regular.ttf') format('truetype'); }
 	
 	* { margin: 0px; padding: 0px; }
 	
@@ -237,34 +244,27 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 		$("#html5_uploader").pluploadQueue({
 			// General settings
 			runtimes : 'html5',
-			url : 'upload.php',
+			url : 'upload.php?utilisateur=<?php echo $utilisateur; ?>',
 			max_file_size : '300mb',
-			chunk_size : '1mb',
-			unique_names : true,
-			multiple_queues : true,
+			chunk_size : '1000mb',
+			//unique_names : true,
+			multiple_queues : true
 			
 });
+		// Setup flash version
+	$("#flash_uploader").pluploadQueue({
+		// General settings
+		runtimes : 'flash',
+		url : 'upload.php?utilisateur=<?php echo $utilisateur; ?>',
+		max_file_size : '300mb',
+		chunk_size : '1000mb',
+		//unique_names : true,
+		multiple_queues : true,
 
- //   // Setup flash version
-//	$("#flash_uploader").pluploadQueue({
-//		// General settings
-//		runtimes : 'flash',
-//		url : 'upload.php',
-//		max_file_size : '300mb',
-//		chunk_size : '1mb',
-//		unique_names : true,
-//		multiple_queues : true,
-//
-//		// Specify what files to browse for
-//		filters : [
-//			{title : "Images", extensions : "jpg,gif,png"},
-//			{title : "Archives", extensions : "zip,rar"},
-//			{title : "Videos", extensions : "avi,mov,mpg,mpeg,mkv,flv"}
-//		],
-//
-//		// Flash settings
-//		flash_swf_url : '/plupload/js/plupload.flash.swf'
-//	});
+		// Flash settings
+		flash_swf_url : '/plupload/js/plupload.flash.swf'
+	});
+
     });
     </script>
     
@@ -396,7 +396,7 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 			}	
 			
 		}
-		
+		/*
 		function clignotement(){ 
 		if (document.getElementById("offer").style.display=="block") 
 		document.getElementById("offer").style.display="none"; 
@@ -404,7 +404,7 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 		document.getElementById("offer").style.display="block"; 
 		} 
 		// mise en place de l appel régulier de la fonction toutes les 0.5 secondes 
-		setInterval("clignotement()", 500); 
+		setInterval("clignotement()", 500); */
 	</script> 
     
 <title>RDDReam - Ton espace personnel</title> 
@@ -508,8 +508,7 @@ if(mysql_num_rows($req)==0){
 			mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
 					
 			$sql2="Select * from espace_eleve where identifiant='".($_POST['login'])."'";
-			$req=mysql_query($sql2) or die($req2.' Erreur SQL !'.$sql2.'<br />'.mysql_error());
-			
+			$req=mysql_query($sql2) or die($req2.' Erreur SQL !'.$sql2.'<br />'.mysql_error());;
 			//Calculs du récapitulatif
 			//Récupération des différentes quantités
 			$dvd=mysql_result($req,0,'nbr_dvd');
@@ -555,7 +554,7 @@ if(mysql_num_rows($req)==0){
             <br>
             <strong><font color="#FF0000">N\'oublie pas de mettre ton nom en référence du virement !</font></strong></center>
             <br><br>
-			<strong><center><font color="#FF0000">Attention, ton paiement doit nous parvenir pour le 1er Avril !</font></strong></center><br><br>';
+			<strong><center><font color="#FF0000"><u>Attention, ton paiement doit nous parvenir pour le 1er Avril !</u></font></strong></center><br><br>';
 			echo $message;
             echo '&nbsp;&nbsp;&nbsp;<strong>Tu vas recevoir un mail récapitulant ces informations</strong> à l\'adresse qui est indiquée dans ton espace personnel.
             <br><br>';
@@ -686,8 +685,13 @@ if(mysql_num_rows($req)==0){
 			
 			?>
 			<center>
+
 			<form name="espace_perso" method="post" action="profil_util.php" style="width:635px">
+            <input type="hidden" name="login" value="<?php echo $_POST['login']; ?>" />          
+            <input type="hidden" name="mdp" value="<?php echo $_POST['mdp']; ?>"  />
+            <input type="submit" value="Retour à l'espace &#13;&#10; personnel" name="valider_infos" class="submit"><br>
 			<input type="submit" value="Se déconnecter" name="deconnection" class="submit">
+            
             <?php
 	}
 	
@@ -696,7 +700,7 @@ if(mysql_num_rows($req)==0){
 			$sql1="";
 			$sql2="";
 			foreach($_POST as $key => $data) {
-				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='flash_uploader_count' && $key!='html5_uploader_count'  && $key!='valider_infos' && $key!='html5_uploader_0_tmpname' && $key!='html5_uploader_0_name' && $key!='html5_uploader_0_status' && $key!='valider_infos' && preg_match("/html5/", $nkey)==1){
+				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='flash_uploader_count' && $key!='valider_infos' && !(stripos($key,'html')===0)){
 					if(	$key=='nbr_dvd' || $key=='nbr_lampes' || $key=='nbr_yearbook'){ 	
 						$sql1.=$key."="."'".$data."'".",";
 					}else{
@@ -710,7 +714,7 @@ if(mysql_num_rows($req)==0){
 			}else{
 				$sql1.="participation_semaine='0',";	
 			}
-			
+
 			$sql1=substr($sql1,0,-1);
 			$sql2=substr($sql2,0,-1);
 			$sql="UPDATE espace_eleve set $sql1 where identifiant='".$_POST['login']."'";
@@ -793,11 +797,13 @@ if(mysql_num_rows($req)==0){
             echo '</span>';
 			}else{
 				$i=1;
-				while($i<=mysql_result($req,0,'nbr_lampes') && (mysql_result($req,0,'lampe'.$i.'ligne1')!='' || mysql_result($req,0,'lampe'.$i.'ligne1')!='' || mysql_result($req,0,'lampe'.$i.'ligne1')!='')){
+				//&& (mysql_result($req,0,'lampe'.$i.'ligne1')!='' || mysql_result($req,0,'lampe'.$i.'ligne1')!='' || mysql_result($req,0,'lampe'.$i.'ligne1')!='')
+				while($i<=mysql_result($req,0,'nbr_lampes') ){
 				echo '<span id="champ_'.($i-1).'"><fieldset><label for="ligne_1"><font size="+1">Ligne 1 gravée sur la lampe '.$i.' (Prénom par ex.) : </font></label><input type="text" name="lampe'.$i.'ligne1" value="'.mysql_result($req,0,'lampe'.$i.'ligne1').'"/><br><label for="ligne_2"><font size="+1">Ligne 2 gravée sur la lampe '.$i.' (Nom par ex.) : </font></label><input type="text" name="lampe'.$i.'ligne2" value="'.mysql_result($req,0,'lampe'.$i.'ligne2').'" /><br><label for="ligne_3"><font size="+1">Ligne 3 gravée sur la lampe '.$i.' (Promotion 2009 par ex.) : </font></label><input type="text" name="lampe'.$i.'ligne3" value="'.mysql_result($req,0,'lampe'.$i.'ligne3').'" /></fieldset></span>';
-				echo '<span id="champ_'.($i).'"></span>';
+				
 				$i++;
 				}
+				echo '<span id="champ_'.($i-1).'"></span>';
 			}
 			?>
             <br>
@@ -858,7 +864,7 @@ if(mysql_num_rows($req)==0){
             </tr>
             <tr>
             <td style="text-align:justify" style="text-indent:"6px"" > 
-            <center><span id="cadeau"><img src="/pdf/pack.jpg" alt="Pas d'image chargée" height="180px" style="margin-right:"100 px/ onClick="this.src='/pdf/rosbif.jpg'"></span><br><font size="+0">
+            <center><span id="cadeau"><img src="/pdf/pack.jpg" alt="Pas d'image chargée" height="180px" style="margin-right:"100 px/ onClick="this.src='/pdf/rosbif.png'"></span><br><font size="+0">
             Si tu achètes un DVD, une lampe et un yearbook, la RDD te propose un pack qui te permet de réaliser 3 € d'économies. </font>
             <br>
 
@@ -980,6 +986,7 @@ if(mysql_num_rows($req)==0){
             </table>
             <br>
             <br>
+            <i><font size="-1">NB : les visuels de cette page (hors lampe) ne sont pas déinitifs !</font></i>
             </fieldset>
             <fieldset>
             <center>
@@ -1008,7 +1015,8 @@ if(mysql_num_rows($req)==0){
 			$sql1="";
 			$sql2="";
 			foreach($_POST as $key => $data) {
-				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='flash_uploader_count' && $key!='html5_uploader_count'  && $key!='valider_infos' && $key!='html5_uploader_0_tmpname' && $key!='html5_uploader_0_name' && $key!='html5_uploader_0_status' && preg_match("/html5/", $nkey)==1){
+				echo stripos($key,'html');
+				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='valider_infos' && !(stripos($key,'html')===0)){
 					if(	$key=='nbr_dvd' || $key=='nbr_lampes' || $key=='nbr_yearbook'){ 	
 						$sql1.=$key."="."'".$data."'".",";
 					}else{
@@ -1030,6 +1038,8 @@ if(mysql_num_rows($req)==0){
 					
 			$sql2="Select * from espace_eleve where identifiant='".($_POST['login'])."'";
 			$req=mysql_query($sql2) or die($req2.' Erreur SQL !'.$sql2.'<br />'.mysql_error());
+			
+
 	}
 	
 	//Identification OK. Récupération des valeurs
@@ -1044,29 +1054,29 @@ if(mysql_num_rows($req)==0){
                 <center>
                 <form enctype="multipart/form-data" action="upload_ppt.php" method="post" style="width:245px">
                 <label for="photo_ppt">Ta photo pour le PPT</label>
-                <img src=<?php echo "/pdf/".mysql_result($req,0,'photo_ppt'); ?> alt="Pas d'image chargée" height="200px" />
+                <img src=<?php echo "pdf/".mysql_result($req,0,'photo_ppt'); ?> alt="Pas d'image chargée" height="200px" />
                 <br>
                 <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
                 <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
                 <input type="file" name="photo_ppt" accept="application/jpg"  />
                 <br>
                 <input type="submit" value="Envoyer l'image (2 Mo max. !)" /><br>
-                <font size="-2">(si non renseigné, l'image sera celle du PPT !)
-                <br>Tu peux mettre une photo décalée !!</font>
+                <font size="-2">(si non renseigné, l'image sera celle du trombi !)
+                <br>Tu peux mettre une photo décalée !! (mais pas trop...)</font>
                 </form> 
                 </td>
                 <td>
                 <center>
                 <form enctype="multipart/form-data" action="upload_yb.php" method="post" style="width:245px">
                 <label for="photo_yearbook">Ta photo pour le Yearbook</label>
-                <img src=<?php echo "/pdf/".mysql_result($req,0,'photo_yearbook'); ?> alt="Pas d'image chargée" height="200px" />
+                <img src=<?php echo "pdf/".mysql_result($req,0,'photo_yearbook'); ?> alt="Pas d'image chargée" height="200px" />
                 <br>
                 <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
                 <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
                 <input type="file" name="photo_yearbook" accept="application/jpg"  />
                 <br>
                 <input type="submit" value="Envoyer l'image (2 Mo max. !)" /><br>
-                <font size="-2">(si non renseigné, l'image sera celle du PPT !)
+                <font size="-2">(si non renseigné, l'image sera celle du trombi !)
                 <br>Tu peux mettre une photo décalée !!</font>
                 </form> 
                 </td>
@@ -1080,26 +1090,54 @@ if(mysql_num_rows($req)==0){
             
            
             
-            <label for="faits_marquants">Les faits marquants de ta scolarité (clubs, assoces, citations, ...) :</label><br><font size="-2">Sera utilisé pour compléter le Yearbook et pour aider ton responsable de département à rédiger ta partie du PPT diffusé le jour de la RDD.</font><br>
+            <label for="faits_marquants">Les faits marquants de ta scolarité (clubs, assoces, citations, ...) :</label><br><font size="-1">Sera utilisé pour compléter le Yearbook et pour aider ton responsable de département à rédiger ta partie du PPT diffusé le jour de la RDD.</font><br>
 			<textarea name="faits_marquants" ><?php echo mysql_result($req,0,'faits_marquants'); ?></textarea>
 			<br>
             
-            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-2">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom.</strong></font><br>
+            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-1">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom.</strong></font><br>
 			<textarea name="adresse_parents" ><?php echo mysql_result($req,0,'adresse_parents'); ?></textarea>
 			<br>
             
-            <label for="mail">Une adresse mail où l'on peut te contacter rapidement :</label><br><font size="-2">Cette adresse sera utile pour la commande des goodies et pour tout contact ultérieur. Verifie bien !</font><br><br>
+            <label for="mail">Une adresse mail où l'on peut te contacter rapidement :</label><br><font size="-1">Cette adresse sera utile pour la commande des goodies et pour tout contact ultérieur. Verifie bien !</font><br><br>
 			<center><input type="text" id="mail" name="mail" value="<?php echo mysql_result($req,0,'mail'); ?>"/></center>
             <br>
             
-            <label for="mail">Coche cette case si tu comptes participer aux activités de la semaine RDD : <br><font size="-2">Ca n'engage en rien ! C'est juste pour avoir une idée du nombre de personnes.</font><br><br><center><input type="checkbox" name="participation_semaine" <?php if(mysql_result($req,0,'participation_semaine')){echo "checked";} ?>/></center></label>
+            <label for="mail">Coche cette case si tu comptes participer aux activités de la semaine RDD : <br><font size="-1">Ca n'engage en rien ! C'est juste pour avoir une idée du nombre de personnes.</font><br><br><center><input type="checkbox" name="participation_semaine" <?php if(mysql_result($req,0,'participation_semaine')){echo "checked";} ?>/></center></label>
             <br>
             
-            <label for="mail">Envoi de photos et de vidéos :</label><br><font size="-2">Utilise l'interface ci-dessous pour nous envoyer des photos pour alimenter le Yearbook et le poster de promotion et des vidéos pour le JTM qui sera diffusé pendant la RDD.</font><br><br>
-			<center><div id="html5_uploader">Ton navigateur ne supporte pas le HTML 5. Il faut utiliser au moins Firefox 3, Chrome ou Internet Explorer 9.</div></center>
+            <label for="mail">Envoi de photos et de vidéos :</label><br><font size="-1">Utilise l'interface ci-dessous pour nous envoyer des photos pour alimenter le Yearbook et le poster de promotion et des vidéos pour le JTM qui sera diffusé pendant la RDD.<br>
+             
+             <?php
+			$rep = 'uploads'. DIRECTORY_SEPARATOR .$utilisateur. DIRECTORY_SEPARATOR;
+			if(is_dir($rep)){	
+				$dir = opendir($rep);
+				while ($f = readdir($dir)) 
+				{	
+				   if(is_file($rep.$f)) 
+					   {
+					   $tab_dir[] = $f;
+					   }
+				}
+				if(isset($tab_dir[0])){
+					natcasesort($tab_dir);
+					echo "NB : Tu as déjà envoyé les fichiers suivants :<br>";
+					echo '<center>';
+					echo "<SELECT size='4' style='border:hidden'>";
+					foreach($tab_dir as $elem) 
+					{
+						echo '<OPTION>'.$elem;	
+					}
+					echo '</SELECT>';
+					echo '</center>';
+				}
+			 }
+						
+			?>
+            </font>
+			<center><div id="html5_uploader"><div id="flash_uploader">Ton navigateur ne supporte pas le Flash. Tu peux le télécharger ici : <a href="http://get.adobe.com/fr/flashplayer/"></a></div></div></center>
             <br>
             <br>
-            
+                       
 			<br>
             
             <center>
