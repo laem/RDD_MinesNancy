@@ -7,11 +7,11 @@ $db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion 
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
 
 //Récupération de l'image
-$repertoireDestination = dirname(__FILE__)."/pdf/";
+$repertoireDestination = "pdf";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
 
 if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
-	if (rename($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination.$nomDestination)) {
+	if (rename($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination)) {
 		
 		//recherche d'une éventuelle ancienne image et suppression
 		$sql2="Select photo_yearbook from espace_eleve where identifiant='".($_POST['login'])."'";
