@@ -37,6 +37,7 @@ if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 	}
 	else {
 		echo "Le déplacement du fichier temporaire a échoué"." vérifiez l'existence du répertoire ".$repertoireDestination;
+		echo $repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination;
 	}          
 } 
 else {
