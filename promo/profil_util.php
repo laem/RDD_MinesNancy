@@ -17,7 +17,7 @@ if(isset($_POST["login"])){
 <head>
 	<style type="text/css"> 
 	@font-face { font-family : 'Yanone Kaffeesatz';
-	src: url('font/YanoneKaffeesatz-Regular.ttf') format('truetype'); }
+	src: url('font/YanoneKaffeesatz-Light.ttf') format('truetype'); }
 	
 	* { margin: 0px; padding: 0px; }
 	
@@ -986,7 +986,7 @@ if(mysql_num_rows($req)==0){
             </table>
             <br>
             <br>
-            <i><font size="-1">NB : les visuels de cette page (hors lampe) ne sont pas déinitifs !</font></i>
+            <i><font size="-1">NB : les visuels de cette page (hors lampe) ne sont pas définitifs !</font></i>
             </fieldset>
             <fieldset>
             <center>
@@ -1094,7 +1094,7 @@ if(mysql_num_rows($req)==0){
 			<textarea name="faits_marquants" ><?php echo mysql_result($req,0,'faits_marquants'); ?></textarea>
 			<br>
             
-            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-1">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom.</strong></font><br>
+            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-1">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom de tes parents.</strong></font><br>
 			<textarea name="adresse_parents" ><?php echo mysql_result($req,0,'adresse_parents'); ?></textarea>
 			<br>
             
