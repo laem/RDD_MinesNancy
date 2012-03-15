@@ -1,6 +1,6 @@
 <?php 
 	$sql_url='localhost';
-	$sql_login='rdd09';
-	$sql_pass='PASSWORD_HERE';
-	$base='rdd09';
+	$sql_login='root';
+	$sql_pass='';
+	$base='dir_final2';
 ?>
