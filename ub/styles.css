@@ -1,0 +1,188 @@
+body 
+{ 
+	margin: 0 auto; 
+	background: #f5f5f5; 	
+	color: #555;	 
+	width: 800px; 
+	font-size: 1.15em;		
+	/* make reference to the Yanone Kaffeesatz font */
+	font-family: 'Yanone Kaffeesatz', arial, sans-serif;
+}
+	
+h1 
+{ 
+	color: #555; 
+	margin: 0 0 20px 0; 
+}	
+		
+label 
+{	
+	font-size: 20px;
+	color: #666; 
+}
+	
+form, #message 
+{ 
+	float: left;
+	border: 1px solid #ddd; 
+	padding: 30px 40px 20px 40px; 
+	margin: 15px 0 0 0;
+	width: 715px;
+	background: #fff;
+				
+	/* -- CSS3 - define rounded corners for the form -- */	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 		
+		
+	/* -- CSS3 - create a background graident -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFFFFF)); 
+	background: -moz-linear-gradient(0% 40% 90deg,#FFF, #EEE); 
+		
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow:0px 0 50px #ccc;
+	-moz-box-shadow:0px 0 50px #ccc; 
+	box-shadow:0px 0 50px #ccc;		 		
+}	
+	
+fieldset 
+{ 
+	border: none; 
+}
+
+.keyword
+{
+	color: orange; 
+}
+
+#message
+{
+	text-indent: 25px;
+	text-align: justify;
+	background-image: url("pics/braun.jpg");   
+    background-repeat: no-repeat; 
+    background-position: 94% 3.5%;
+}
+	
+#user-details 
+{ 
+	float: left;
+	width: 230px; 	
+}
+	
+#user-message 
+{ 
+	float: right;
+	width: 405px;
+}
+	
+input, textarea 
+{ 		
+	padding: 8px; 
+	margin: 4px 0 20px 0; 
+	background: #fff; 
+	width: 220px; 
+	font-size: 14px; 
+	color: #555; 
+	border: 1px #ddd solid;
+		
+	/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	-webkit-box-shadow: 0px 0px 4px #aaa;
+	-moz-box-shadow: 0px 0px 4px #aaa; 
+	box-shadow: 0px 0px 4px #aaa;
+		
+	/* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	-webkit-transition: background 0.3s linear;							
+}
+	
+textarea 
+{		
+	width: 390px; 
+	height: 175px; 		 		
+}
+	
+input:hover, textarea:hover 
+{ 
+	background: #eee; 
+}
+		
+input.submit 
+{ 	
+	width: 150px; 
+	color: #eee; 
+	text-transform: uppercase; 
+	margin-top: 10px;
+	background-color: #18a5cc;
+	border: none;
+		
+	/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
+	-webkit-transition: -webkit-box-shadow 0.3s linear;
+		
+	/* -- CSS3 - Rounded Corners -- */
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px;
+	border-radius: 4px; 
+						
+	/* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+	background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);		
+} 
+	
+input.submit:hover 
+{ 		
+	-webkit-box-shadow: 0px 0px 20px #555;
+	-moz-box-shadow: 0px 0px 20px #aaa; 
+	box-shadow: 0px 0px 20px #555;	
+	cursor:  pointer; 
+} 		
+				
+
+#error
+{
+	background-color: pink;	
+	border: 1px red solid;
+	font-weight: bold;
+	padding: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	border-radius: 7px;
+}
+
+#thanks
+{
+	background-color: lightgreen;	
+	border: 1px darkgreen solid;
+	font-weight: bold;
+	padding: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	border-radius: 7px;
+}
+
+td.left
+{
+	text-align: right;
+}
+
+input.send
+{
+	margin-top: 2%;	
+}
+
+#answer
+{
+	background-color: #f4f4f4;	
+	border: 1px grey solid;	
+	padding-left: 2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin: 1%;
+	border-radius: 7px;
+}
+
+#answer img
+{
+	margin-top: 1%;
+	border: 1px grey solid;	
+}
+
