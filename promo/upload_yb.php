@@ -7,12 +7,9 @@ $db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion 
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
 
 //Récupération de l'image
-$repertoireDestination = dirname(__FILE__)."/pdf";
+$repertoireDestination = dirname(__FILE__)."/pdf/";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
-$error = $_FILES['photo_yearbook']['error'];
-echo $error;
-$retour = up_error($error,$_FILES["photo_yearbook"]["tmp_name"]);
-echo $retour;
+
 if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 	if (rename($_FILES["photo_yearbook"]["tmp_name"],$repertoireDestination.$nomDestination)) {
 		
