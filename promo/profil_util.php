@@ -219,8 +219,8 @@ if(isset($_POST["login"])){
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     
     <!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
-    <script type="text/javascript" src="/plupload/js/plupload.full.js"></script>
-    <script type="text/javascript" src="/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+    <script type="text/javascript" src="plupload/js/plupload.full.js"></script>
+    <script type="text/javascript" src="plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
     
     <script type="text/javascript">
     // Convert divs to queue widgets when the DOM is ready
@@ -262,7 +262,7 @@ if(isset($_POST["login"])){
 		multiple_queues : true,
 
 		// Flash settings
-		flash_swf_url : '/plupload/js/plupload.flash.swf'
+		flash_swf_url : 'plupload/js/plupload.flash.swf'
 	});
 
     });
