@@ -8,7 +8,6 @@ if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
 }
 
-phpinfo(); 
 
 
 ?>
@@ -702,7 +701,7 @@ if(mysql_num_rows($req)==0){
 			$client_mail->Port= 587;
 			$client_mail->Username="jose.gapin";
 			$client_mail->Password= "wyqwy57n";
-			$client_mail->SetFrom("teamrdd@yahoo.com>","Team RDD");
+			$client_mail->SetFrom("teamrdd@yahoo.com","Team RDD");
 			$client_mail->CharSet = 'iso-8859-1';
 			$client_mail->Subject = "Ta commande de goodies RDD !";
 			$client_mail->MsgHTML($message.$message2);
