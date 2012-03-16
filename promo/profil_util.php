@@ -8,6 +8,8 @@ if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
 }
 
+phpinfo(); 
+
 
 ?>
     
