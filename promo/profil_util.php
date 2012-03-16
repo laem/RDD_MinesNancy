@@ -841,9 +841,9 @@ if(mysql_num_rows($req)==0){
             <img src="pdf/poster.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un magnifique poster sur lequel il y a toute la promo et qui sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est constitué d'une mosaïque d'images de la promotion qui forme le logo N09. 
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un magnifique poster sur lequel tu retrouveras toutes les Mines. Il sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est constitué d'une mosaïque d'images de la promotion qui forme le logo N09. (un peu comme le poster du Cartel de Bochum)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.</u>
             </font>
             <br>
             <p align="right"><font size="+2"><strong>5 €</strong></font></p>            
