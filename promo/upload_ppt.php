@@ -17,7 +17,7 @@ if (is_uploaded_file($_FILES["photo_ppt"]["tmp_name"])) {
 		$req=mysql_query($sql2) or die($req2.' Erreur SQL !'.$sql2.'<br />'.mysql_error());
 		
 		if(mysql_num_rows($req)!=0 && mysql_result($req,0,'photo_ppt')!=""){
-			unlink(dirname(__FILE__)."/pdf/".mysql_result($req,0,'photo_ppt'));
+			unlink(dirname(__FILE__)."/uploads/pdf/".mysql_result($req,0,'photo_ppt'));
 		}
 		
 		//Mise à jour des données sur la photo

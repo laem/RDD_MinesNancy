@@ -18,7 +18,7 @@ if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 		$req=mysql_query($sql2) or die($req2.' Erreur SQL !'.$sql2.'<br />'.mysql_error());
 		
 		if(mysql_num_rows($req)!=0 && mysql_result($req,0,'photo_yearbook')!=""){
-			unlink(dirname(__FILE__)."/pdf/".mysql_result($req,0,'photo_yearbook'));
+			unlink(dirname(__FILE__)."/uploads/pdf/".mysql_result($req,0,'photo_yearbook'));
 		}
 		
 		//Mise à jour des données sur la photo
@@ -37,10 +37,6 @@ if (is_uploaded_file($_FILES["photo_yearbook"]["tmp_name"])) {
 	}
 	else {
 		echo "Le déplacement du fichier temporaire a échoué"." vérifiez l'existence du répertoire ".$repertoireDestination;
-		echo '<br>';
-		echo $repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination;
-		echo '<br>';
-		echo $_FILES["photo_yearbook"]["tmp_name"];
 	}          
 } 
 else {
