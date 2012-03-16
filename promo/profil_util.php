@@ -819,7 +819,7 @@ if(mysql_num_rows($req)==0){
             </td>
             <td style="text-align:justify" ><font size="+0">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le Yearbook : un recueil de 100 pages qui récapitule tes 2 (voire 3) années aux Mines en photos. C'est un objet souvenir incontournable de toute remise des diplômes. 
-            <br><br>&nbsp;&nbsp;Tu y retrouveras tous les événements, les meilleurs moments, les meilleures photos, les citations, les ragalz et pleins d'autres surprises et un trombinoscope de la promo09 FICM et FITI. Personne n'est épargné. 
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tu y retrouveras tous les événements, les meilleurs moments, les meilleures photos, les citations, les ragalz et pleins d'autres surprises et un trombinoscope de la promo09 FICM et FITI. Personne n'est épargné. 
 			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tu pourras y contribuer en nous proposant des photos et des textes à y insérer. 
             <br></font>
             <p align="right"><font size="+2"><strong>15 €</strong></font></p>
@@ -843,7 +843,7 @@ if(mysql_num_rows($req)==0){
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un magnifique poster sur lequel tu retrouveras toutes les Mines. Il sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.
             <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est constitué d'une mosaïque d'images de la promotion qui forme le logo N09. (un peu comme le poster du Cartel de Bochum)
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.</u>
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.
             </font>
             <br>
             <p align="right"><font size="+2"><strong>5 €</strong></font></p>            
