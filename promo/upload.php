@@ -56,7 +56,7 @@ $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
 
 // Create target dir
 if (!file_exists($targetDir))
-	@mkdir($targetDir);
+	mkdir($targetDir);
 
 // Remove old temp files	
 if ($cleanupTargetDir && is_dir($targetDir) && ($dir = opendir($targetDir))) {
