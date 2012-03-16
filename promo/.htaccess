@@ -7,7 +7,4 @@
 #RewriteEngine on
 #RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 #</IfModule>
-
-
-deny from all 
-allow from 127.0.0.1 
+Options All -Indexes 
