@@ -1056,7 +1056,7 @@ if(mysql_num_rows($req)==0){
                 <center>
                 <form enctype="multipart/form-data" action="upload_ppt.php" method="post" style="width:245px">
                 <label for="photo_ppt">Ta photo pour le PPT</label>
-                <img src=<?php echo "pdf/".mysql_result($req,0,'photo_ppt'); ?> alt="Pas d'image chargée" height="200px" />
+                <img src=<?php echo "uploads/pdf/".mysql_result($req,0,'photo_ppt'); ?> alt="Pas d'image chargée" height="200px" />
                 <br>
                 <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
                 <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
@@ -1071,7 +1071,7 @@ if(mysql_num_rows($req)==0){
                 <center>
                 <form enctype="multipart/form-data" action="upload_yb.php" method="post" style="width:245px">
                 <label for="photo_yearbook">Ta photo pour le Yearbook</label>
-                <img src=<?php echo "pdf/".mysql_result($req,0,'photo_yearbook'); ?> alt="Pas d'image chargée" height="200px" />
+                <img src=<?php echo "uploads/pdf/".mysql_result($req,0,'photo_yearbook'); ?> alt="Pas d'image chargée" height="200px" />
                 <br>
                 <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
                 <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
