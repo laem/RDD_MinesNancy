@@ -776,7 +776,8 @@ if(mysql_num_rows($req)==0){
             <br>(cliquez pour agrandir)
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elle est toute belle, en laiton (ça pèse son poids !), aspect vieilli, des dimensions qui en feront rêver plus d'une (22 cm x 7.5 cm), gravée selon tes désirs !
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elle est toute belle, en laiton (ça pèse son poids !), aspect vieilli, des dimensions qui en feront rêver plus d'une (22 cm x 7.5 cm), gravée selon tes désirs !<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voici une belle lampe de mineur que tout bon Mineur doit posséder !
             </font>
             <br>
             <p align="right"><font size="+2"><strong>42 €</strong></font></p>            
