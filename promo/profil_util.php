@@ -547,7 +547,7 @@ if(mysql_num_rows($req)==0){
             <br><br>
             &nbsp;&nbsp;&nbsp;Cette commande reste modifiable jusqu\'au 30 mars, simplement en te connectant à ton espace personnel.
             <br><br>
-            &nbsp;&nbsp;&nbsp;Si tu es certain de ta commande, tu peux envoyer dès maintenant ton réglement <strong>par chèque</strong> à l\'adresse suivante :
+            &nbsp;&nbsp;&nbsp;Si tu es certain de ta commande, tu peux envoyer dès maintenant ton réglement <strong>par chèque</strong> à l\'ordre de <strong>\" REMISE DES DIPLOMES EMN \" </strong>à l\'adresse suivante :
             <br><br><center>
             Laurent Dall\'Aglio<br>
             15, rue Hermel<br>
