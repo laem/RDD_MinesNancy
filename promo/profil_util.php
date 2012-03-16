@@ -683,12 +683,32 @@ if(mysql_num_rows($req)==0){
             </fieldset>';
             echo $message2;
             //Envoi tu message
+			/*
 			$to=mysql_result($req,0,'mail');
 			$subject="Ta commande de goodies RDD !";
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 		    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From: Team RDD <teamrdd@yahoo.com>' . "\r\n";
-			mail($to, $subject, $message.$message2, $headers);
+			mail($to, $subject, $message.$message2, $headers);*/
+			
+			require_once 'PHPMailer_5.2.0/class.phpmailer.php';
+			require_once 'PHPMailer_5.2.0/class.smtp.php';
+	
+			$client_mail = new PHPMailer();
+			$client_mail->IsHTML(true);
+			$client_mail->SMTPAuth= true;
+			$client_mail->IsSMTP();
+			$client_mail->Host= "smtp.free.fr";
+			$client_mail->Port= 587;
+			$client_mail->Username="jose.gapin";
+			$client_mail->Password= "wyqwy57n";
+			$client_mail->SetFrom("teamrdd@yahoo.com>","Team RDD");
+			$client_mail->CharSet = 'iso-8859-1';
+			$client_mail->Subject = "Ta commande de goodies RDD !";
+			$client_mail->MsgHTML($message.$message2);
+			$client_mail->AddAddress($to, ' ');
+			
+			$client_mail->Send();
 			
 			
 			?>
