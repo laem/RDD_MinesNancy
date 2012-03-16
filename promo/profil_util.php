@@ -790,7 +790,7 @@ if(mysql_num_rows($req)==0){
 			<input type="text" id="nbr_lampes" name="nbr_lampes" value="<?php echo mysql_result($req,0,'nbr_lampes'); ?>"  style="width:50px" readonly />
             &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_lampe();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_lampe();"/>
             <br>
-            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merci de ne pas dépasser 10 caractères par ligne (sauf pour la 3ème ligne - 14 caractères). Compte tenu des contraintes de la gravure laser et de la courbure de la surface, nous ne pouvons vous garantir un résultat parfait au delà.</strong> <br>Si ton nom est trop long pour tenir sur une ligne, laisse la ligne du nom vide et <a href="mailto:alex.gapin@mines.inpl-nancy.fr">contacte Alex</a> <font size="-2">Il y a toujours une solution ! ;)</font>
+            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Merci de ne pas dépasser 10 caractères par ligne</u></strong> (sauf pour la 3ème ligne - 14 caractères). Compte tenu des contraintes de la gravure laser et de la courbure de la surface, nous ne pouvons vous garantir un résultat parfait au delà.</strong> <br>Si ton nom est trop long pour tenir sur une ligne, laisse la ligne du nom vide et <a href="mailto:alex.gapin@mines.inpl-nancy.fr">contacte Alex</a> <font size="-2">Il y a toujours une solution ! ;)</font>
 			</fieldset>
             <br>
             <br>
