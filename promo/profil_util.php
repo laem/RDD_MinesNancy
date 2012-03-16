@@ -778,7 +778,7 @@ if(mysql_num_rows($req)==0){
             <table style="border:hidden">
             <tr>
             <td>
-            <a href="/pdf/lampe.jpg" target="_blank"><img src="pdf/lampe.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="pdf/lampe.jpg" target="_blank"><img src="pdf/lampe.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br>(cliquez pour agrandir)
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
