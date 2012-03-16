@@ -17,5 +17,5 @@
 			$client_mail->AddAddress("alex.gapin@mines.inpl-nancy.fr", ' ');
 			
 			$client_mail->Send();
-		}
+		
 	?>
