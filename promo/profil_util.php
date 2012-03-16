@@ -6,7 +6,7 @@ $utilisateur=null;
 if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
 }
-mkdir('uploads' . DIRECTORY_SEPARATOR .$utilisateur);
+echo(mkdir('uploads' . DIRECTORY_SEPARATOR .$utilisateur));
 ?>
     
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
