@@ -391,8 +391,11 @@ if(isset($_POST["login"])){
 		}
 		
 		function confirmation_goodies(){
-			
-			if (window.confirm("Êtes-tu sûr de valider cette commande ? \nElle reste modifiable jusqu'au 30 mars.")){
+			if(document.getElementById("nbr_dvd").value==0 && document.getElementById("nbr_lampes").value==0 && document.getElementById("nbr_yearbook").value==0 && document.getElementById("nbr_poster").value==0){
+				alert("Choisis au moins un objet !);
+				return false;
+			}
+			else if (window.confirm("Êtes-tu sûr de valider cette commande ? \nElle reste modifiable jusqu'au 30 mars.")){
 				return true;
 			} else {
 				return false;
