@@ -683,7 +683,7 @@ if(mysql_num_rows($req)==0){
             echo $message2;
             //Envoi tu message
 			/*
-			$to=mysql_result($req,0,'mail');
+			
 			$subject="Ta commande de goodies RDD !";
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 		    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -692,7 +692,7 @@ if(mysql_num_rows($req)==0){
 			
 			require_once 'PHPMailer_5.2.0/class.phpmailer.php';
 			require_once 'PHPMailer_5.2.0/class.smtp.php';
-	
+			$to=mysql_result($req,0,'mail');
 			$client_mail = new PHPMailer();
 			$client_mail->IsHTML(true);
 			$client_mail->SMTPAuth= true;
