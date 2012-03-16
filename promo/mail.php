@@ -8,8 +8,8 @@
 			$client_mail->IsSMTP();
 			$client_mail->Host= "smtp.free.fr";
 			$client_mail->Port= 587;
-			$client_mail->Username="purrock";
-			$client_mail->Password= "stanan";
+			$client_mail->Username="jose.gapin";
+			$client_mail->Password= "wyqwy57n";
 			$client_mail->SetFrom("alex.gapin@mines.inpl-nancy.fr","alex gapin");
 			$client_mail->CharSet = 'utf-8';
 			$client_mail->Subject = "test rdd";
