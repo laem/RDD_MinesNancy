@@ -7,49 +7,6 @@ if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
 }
 
-//test création rep
-function handleError() {
-    trigger_error('MY ERROR');
-
-    /** usage sample
-        @handleError();
-        echo $php_errormsg;
-    */
-}
-
-// detect slash/backslash nomenclature dirname
-$path = dirname( __FILE__ );
-$slash = '/'; strpos( $path, $slash ) ? '' : $slash = '\\';
-define( 'BASE_DIR', $path . $slash );
-
-$folder  = time();               // folder name
-$dirPath = BASE_DIR . $folder;   // folder path
-
-// print results
-echo $slash;
-echo '<hr>';
-
-$rs = @mkdir( $dirPath, '0777' );
-@handleError();
-if( $rs )
-{
-
-    // print success information
-    echo 'was done!';
-    echo '<br>folder: <a href="' . $folder . '">' . $folder . '</a>';
-    echo '<br>dirPath: ' . $dirPath;
-
-}else{
-    
-    // print error information
-    echo 'an error was occurred. Attempting create folder';
-    echo '<br>dirPath: ' . $dirPath;
-    echo '<br>php_errormsg: ' . $php_errormsg;
-
-}
-
-//---------------------
-
 
 ?>
     
