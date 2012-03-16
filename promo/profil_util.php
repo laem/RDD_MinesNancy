@@ -754,7 +754,7 @@ if(mysql_num_rows($req)==0){
             <img src="pdf/dvd.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px""><font size="+0">
-            <p align="justify" style="text-indent:10px">
+            <p align="justify" style="text-indent:20px">
             Et voici pour toi un super DVD : il contient l'ensemble des JTM de tes 2 années aux mines ainsi que celui qui sera diffusé pendant la semaine de la RDD. Et comme on n'est pas radins, on rajoute aussi l'ensemble des films diffusés pendant ta présence aux Mines (films de campagne Forum, JE, BDE, amphis de présentation,...) ainsi que toutes les musiques mythiques de ta scolarité ! Et plein d'autres bonus !!
             <p>
             </font>
@@ -779,8 +779,10 @@ if(mysql_num_rows($req)==0){
             <br>(cliquez pour agrandir)
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elle est toute belle, en laiton (ça pèse son poids !), aspect vieilli, des dimensions qui en feront rêver plus d'une (22 cm x 7.5 cm), gravée selon tes désirs !<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voici une belle lampe de mineur que tout bon Mineur doit posséder !
+            <p align="justify" style="text-indent:20px">
+            Elle est toute belle, en laiton (ça pèse son poids !), aspect vieilli, des dimensions qui en feront rêver plus d'une (22 cm x 7.5 cm), gravée selon tes désirs !</p>
+            <p align="justify" style="text-indent:20px">
+            Voici une belle lampe de mineur que tout bon Mineur doit posséder !</p>
             </font>
             <br>
             <p align="right"><font size="+2"><strong>42 €</strong></font></p>            
@@ -793,7 +795,7 @@ if(mysql_num_rows($req)==0){
 			<input type="text" id="nbr_lampes" name="nbr_lampes" value="<?php echo mysql_result($req,0,'nbr_lampes'); ?>"  style="width:50px" readonly />
             &nbsp;&nbsp;&nbsp;<img src="pdf/moins.png" alt="Pas d'image chargée" onClick="moins_lampe();"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="pdf/plus.png" alt="Pas d'image chargée" onClick="plus_lampe();"/>
             <br>
-            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Merci de ne pas dépasser 10 caractères par ligne</u></strong> (sauf pour la 3ème ligne - 14 caractères). Compte tenu des contraintes de la gravure laser et de la courbure de la surface, nous ne pouvons vous garantir un résultat parfait au delà.</strong> <br>Si ton nom est trop long pour tenir sur une ligne, laisse la ligne du nom vide et <a href="mailto:alex.gapin@mines.inpl-nancy.fr">contacte Alex</a> <font size="-2">Il y a toujours une solution ! ;)</font>
+            <br><p align="justify" style="text-indent:20px"><strong><u>Merci de ne pas dépasser 10 caractères par ligne</u></strong> (sauf pour la 3ème ligne - 14 caractères). Compte tenu des contraintes de la gravure laser et de la courbure de la surface, nous ne pouvons vous garantir un résultat parfait au delà.</strong> <br>Si ton nom est trop long pour tenir sur une ligne, laisse la ligne du nom vide et <a href="mailto:alex.gapin@mines.inpl-nancy.fr">contacte Alex</a> <font size="-2">Il y a toujours une solution ! ;)</font></p>
 			</fieldset>
             <br>
             <br>
@@ -821,9 +823,9 @@ if(mysql_num_rows($req)==0){
             <img src="pdf/yearbook.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" ><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le Yearbook : un recueil de 100 pages qui récapitule tes 2 (voire 3) années aux Mines en photos. C'est un objet souvenir incontournable de toute remise des diplômes. 
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tu y retrouveras tous les événements, les meilleurs moments, les meilleures photos, les citations, les ragalz et pleins d'autres surprises et un trombinoscope de la promo09 FICM et FITI. Personne n'est épargné. 
-			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tu pourras y contribuer en nous proposant des photos et des textes à y insérer. 
+            <p align="justify" style="text-indent:20px">Le Yearbook : un recueil de 100 pages qui récapitule tes 2 (voire 3) années aux Mines en photos. C'est un objet souvenir incontournable de toute remise des diplômes.</p> 
+            <br><p align="justify" style="text-indent:20px">Tu y retrouveras tous les événements, les meilleurs moments, les meilleures photos, les citations, les ragalz et pleins d'autres surprises et un trombinoscope de la promo09 FICM et FITI. Personne n'est épargné ! </p> 
+			<br><p align="justify" style="text-indent:20px">Tu pourras y contribuer en nous proposant des photos et des textes à y insérer. </p>
             <br></font>
             <p align="right"><font size="+2"><strong>15 €</strong></font></p>
             </td>
@@ -844,9 +846,9 @@ if(mysql_num_rows($req)==0){
             <img src="pdf/poster.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px"" ><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un magnifique poster sur lequel tu retrouveras toutes les Mines. Il sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est constitué d'une mosaïque d'images de la promotion qui forme le logo N09. (un peu comme le poster du Cartel de Bochum)
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.
+            <p align="justify" style="text-indent:20px">Un magnifique poster sur lequel tu retrouveras toutes les Mines. Il sera la trace de la promo 09 (FICM et FITI) aux Mines, puisque le même sera affiché au bar d'ARTEM.</p>
+            <br><p align="justify" style="text-indent:20px">Il est constitué d'une mosaïque d'images de la promotion qui forme le logo N09. (un peu comme le poster du Cartel de Bochum)</p>
+            <br><p align="justify" style="text-indent:20px">Attention ! Le visuel ci-contre n'est absolument pas définitif : il sera entièrement réalisé avec les photos que vous nous enverrez.</p>
             </font>
             <br>
             <p align="right"><font size="+2"><strong>5 €</strong></font></p>            
