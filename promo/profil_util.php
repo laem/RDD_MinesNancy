@@ -706,7 +706,7 @@ if(mysql_num_rows($req)==0){
 			$sql1="";
 			$sql2="";
 			foreach($_POST as $key => $data) {
-				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='flash_uploader_count' && $key!='valider_infos' && !(stripos($key,'html')===0)){
+				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='flash_uploader_count' && $key!='valider_infos' && !(stripos($key,'html')===0) && !(stripos($key,'flash')===0)){
 					if(	$key=='nbr_dvd' || $key=='nbr_lampes' || $key=='nbr_yearbook'){ 	
 						$sql1.=$key."="."'".$data."'".",";
 					}else{
@@ -1026,7 +1026,7 @@ if(mysql_num_rows($req)==0){
 			$sql1="";
 			$sql2="";
 			foreach($_POST as $key => $data) {
-				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='valider_infos' && !(stripos($key,'html')===0)){
+				if($key!='login' && $key!='mdp' && $key!='commande' && $key!='photo_ppt' && $key!='participation_semaine' && $key!='valider_infos' && !(stripos($key,'html')===0) && !(stripos($key,'flash')===0)){
 					if(	$key=='nbr_dvd' || $key=='nbr_lampes' || $key=='nbr_yearbook'){ 	
 						$sql1.=$key."="."'".$data."'".",";
 					}else{
