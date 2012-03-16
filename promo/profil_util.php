@@ -1,7 +1,8 @@
 <?php
 include('sql_conf.php'); 
-$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
+$db = mysql_connect($sql_url,$sql_login,$sql_pass) or die('Erreur de connexion '.mysql_error());
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
+
 $utilisateur=null; 
 if(isset($_POST["login"])){
 	$utilisateur=$_POST["login"];
@@ -753,7 +754,9 @@ if(mysql_num_rows($req)==0){
             <img src="pdf/dvd.jpg" alt="Pas d'image chargée" height="200px" style="margin-right:"100 px/>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td style="text-align:justify" style="text-indent:"6px""><font size="+0">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Et voici pour toi un super DVD : il contient l'ensemble des JTM de tes 2 années aux mines ainsi que celui qui sera diffusé pendant la semaine de la RDD. Et comme on n'est pas radins, on rajoute aussi l'ensemble des films diffusés pendant ta présence aux Mines (films de campagne Forum, JE, BDE, amphis de présentation,...) ainsi que toutes les musiques mythiques de ta scolarité ! Et plein d'autres bonus !!
+            <p align="justify" style="text-indent:10px">
+            Et voici pour toi un super DVD : il contient l'ensemble des JTM de tes 2 années aux mines ainsi que celui qui sera diffusé pendant la semaine de la RDD. Et comme on n'est pas radins, on rajoute aussi l'ensemble des films diffusés pendant ta présence aux Mines (films de campagne Forum, JE, BDE, amphis de présentation,...) ainsi que toutes les musiques mythiques de ta scolarité ! Et plein d'autres bonus !!
+            <p>
             </font>
             <br>
             <p align="right"><font size="+2"><strong>5 €</strong></font></p>
