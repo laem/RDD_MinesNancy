@@ -10,7 +10,7 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 $repertoireDestination = dirname(__FILE__)."/uploads/pdf";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
 if (is_uploaded_file($_FILES["photo_ppt"]["tmp_name"])) {
-	if (rename($_FILES["photo_ppt"]["tmp_name"],$repertoireDestination.$nomDestination)) {
+	if (rename($_FILES["photo_ppt"]["tmp_name"],$repertoireDestination. DIRECTORY_SEPARATOR .$nomDestination)) {
 		
 		//recherche d'une éventuelle ancienne image et suppression
 		$sql2="Select photo_ppt from espace_eleve where identifiant='".($_POST['login'])."'";
