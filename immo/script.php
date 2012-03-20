@@ -4,6 +4,10 @@ include('simple_html_dom.php');
 $db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
 
+//Mise à zéro de la BDD
+$sql="truncate table locations";
+$result=mysql_query($sql) or die;
+
 //Aquisition de la page
 $i=1;
 
@@ -55,9 +59,10 @@ while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&
 		
 		//Ecriture des description
 		for($k=0;$k++;k<count($paragraphes)){
-			if(!strpos(strip_tags($paragraphes[$k]), "Surface")===0){
+			echo $paragraphes[$k];
+			if(strpos(strip_tags($paragraphes[$k]), "Surface")===0){
 				$surface=strip_tags($paragraphes[$k]);
-				echo "ok";
+				
 			}elseif(strpos(strip_tags($paragraphes[$k], "pièces"))!==false){
 				$pieces=strip_tags($paragraphes[$k]);
 			}elseif(strpos(strip_tags($paragraphes[$k], "chambres"))!==false){
@@ -81,11 +86,9 @@ while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&
 		$lien_image_3=$lien_image_2_bis[0]->src;
 		
 		//Insertion des valeurs dans la base de données
-		$sql="truncate table locations";
-		$result=mysql_query($sql) or die;
+		
 		$sql="insert into locations(id_location,lien_image_principale,ville,surface,pieces,chambre,douche,prix,bains,description,lien_image2,lien_image3) values($num_annonce,'$lien_image_principale','".mysql_escape_string($ville)."','".mysql_escape_string($surface)."','".mysql_escape_string($pieces)."','".mysql_escape_string($chambre)."','".mysql_escape_string($douche)."','".mysql_escape_string($prix)."','".mysql_escape_string($bains)."','".mysql_escape_string($description)."','$lien_image_2','$lien_image_3')";
 		$result=mysql_query($sql) or die ($result.' Erreur SQL !'.$sql.'<br />'.mysql_error());
-		echo $sql;
 	}
 	
 	$i++;
