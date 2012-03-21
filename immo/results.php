@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Document sans nom</title>
 <style type="text/css">
 .base {
@@ -57,27 +57,27 @@
 	while($row = mysql_fetch_array($req)) {
 		echo '<div class="bien"><br>';
 		echo '<div class="photo"><img src="'.$row['lien_image_principale'].'" alt="" name="FichePhotoPrincipale" width="300" border="0" id="FichePhotoPrincipale" /><br></div>';
-		echo '<div class="infos"><br>';
-		echo '<div class="titre">Appartement à vendre</div><br>';
-      	echo '<div class="rel"><br>';
-		echo '<p>'.$row['ville'].'</p><br>';
-		echo '<p>'.$row['surface'].'</p><br>';				
-        echo '<p>'.$row['pieces'].'</p><br>';
-		echo '<p>'.$row['chambre'].'</p><br>';
-		echo '<p>'.$row['douche'].'</p><br>';
-		echo '<p>'.$row['bains'].'</p><br>';
-		echo '<p>'.$row['prix'].'</p><br>';
-        echo '</div><br>';
-		echo '</div><p>&nbsp;</p>
+		echo '<div class="infos">
+		<div class="titre">Appartement à vendre</div>
+      	<div class="rel">
+		<p>'.$row['ville'].'</p>
+		<p>'.$row['surface'].'</p>
+        <p>'.$row['pieces'].'</p>
+		<p>'.$row['chambre'].'</p>
+		<p>'.$row['douche'].'</p>
+		<p>'.$row['bains'].'</p>
+		<p>'.$row['prix'].'</p>
+        </div>
+		</div><p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
-				<p>&nbsp;</p>';
-		echo '<div class="desc">';
-		echo $row['prix'];
-		echo '</div><br>';
-		echo '</div><br>';				
+				<p>&nbsp;</p>
+		<div class="desc">
+		'.$row['prix']'.
+		</div>
+		</div><br>';				
 	}
   ?>
 </div>
