@@ -48,6 +48,7 @@
 <body>
 <div class="base">
   <?php
+  echo '<div class="titre">Appartement &#224; vendre</div>';
 	include('sql_conf.php');
 	$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
@@ -58,7 +59,7 @@
 		echo '<div class="bien"><br>';
 		echo '<div class="photo"><img src="'.$row['lien_image_principale'].'" alt="" name="FichePhotoPrincipale" width="300" border="0" id="FichePhotoPrincipale" /><br></div>';
 		echo '<div class="infos">
-		<div class="titre">Appartement &#224; vendre</div>
+		<div class="titre">Appartement &#224; vendre</div>
       	<div class="rel">
 		<p>'.$row['ville'].'</p>
 		<p>'.$row['surface'].'</p>
