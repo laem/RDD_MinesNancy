@@ -48,7 +48,7 @@
 <body>
 <div class="base">
   <?php
-  echo '<div class="titre">Appartement &#224; vendre</div>';
+
 	include('sql_conf.php');
 	$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());

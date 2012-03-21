@@ -67,7 +67,7 @@ while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&
 				$chambre=strip_tags($paragraphes[$k]);
 			}elseif(preg_match("/salles de douches/i", $paragraphes[$k])){
 				$douche=strip_tags($paragraphes[$k]);
-			}elseif(preg_match("/prix/i", $paragraphes[$k])){
+			}elseif(preg_match("/Prix/", $paragraphes[$k])){
 				$prix=strip_tags($paragraphes[$k]);
 			}elseif(preg_match("/salles de bains/i", $paragraphes[$k])){
 				$bains=strip_tags($paragraphes[$k]);
