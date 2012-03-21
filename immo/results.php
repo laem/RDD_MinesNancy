@@ -58,7 +58,7 @@
 		echo '<div class="bien"><br>';
 		echo '<div class="photo"><img src="'.$row['lien_image_principale'].'" alt="" name="FichePhotoPrincipale" width="300" border="0" id="FichePhotoPrincipale" /><br></div>';
 		echo '<div class="infos">
-		<div class="titre">Appartement à vendre</div>
+		<div class="titre">Appartement &#224; vendre</div>
       	<div class="rel">
 		<p>'.$row['ville'].'</p>
 		<p>'.$row['surface'].'</p>
