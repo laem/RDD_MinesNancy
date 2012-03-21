@@ -48,6 +48,9 @@
 <body>
 <div class="base">
   <?php
+	include('sql_conf.php');
+	$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
+	mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
   	$sql="select * from locations";
   	$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	$total = mysql_num_rows($req);
