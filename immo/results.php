@@ -54,6 +54,7 @@
   	$sql="select * from locations";
   	$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	$total = mysql_num_rows($req);
+	echo $total;
 	while($row = mysql_fetch_array($req_agent)) {
 		echo '<div class="bien"><br>';
 		echo '<div class="photo"><img src="'.$row['lien_image_principale'].'" alt="" name="FichePhotoPrincipale" width="300" border="0" id="FichePhotoPrincipale" /><br></div>';
