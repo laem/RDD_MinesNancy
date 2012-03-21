@@ -1,12 +1,12 @@
 <?php 
 include('sql_conf.php'); 
 include('simple_html_dom.php');
-$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
-mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
+//$db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
+//mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
 
 //Mise à zéro de la BDD
 $sql="truncate table locations";
-$result=mysql_query($sql) or die;
+//$result=mysql_query($sql) or die;
 
 //Aquisition de la page
 $i=1;
@@ -55,27 +55,25 @@ while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&
 		$douche=NULL;
 		$prix=NULL;
 		$bains=NULL;
-		$ville=strip_tags($paragraphes[0]);
-		
+		$ville=NULL;
+	
 		//Ecriture des description
-		for($k=0;$k++;k<count($paragraphes)){
-			echo $paragraphes[$k];
-			if(strpos(strip_tags($paragraphes[$k]), "Surface")===0){
+		for($k=0;$k<count($paragraphes);$k++){
+			if(preg_match("/surface/i", $paragraphes[$k])){
 				$surface=strip_tags($paragraphes[$k]);
-				
-			}elseif(strpos(strip_tags($paragraphes[$k], "pièces"))!==false){
+			}elseif(preg_match("/pièces/i", $paragraphes[$k])){
 				$pieces=strip_tags($paragraphes[$k]);
-			}elseif(strpos(strip_tags($paragraphes[$k], "chambres"))!==false){
+			}elseif(preg_match("/chambres/i", $paragraphes[$k])){
 				$chambre=strip_tags($paragraphes[$k]);
-			}elseif(strpos(strip_tags($paragraphes[$k], "douches"))!==false){
+			}elseif(preg_match("/douches/i", $paragraphes[$k])){
 				$douche=strip_tags($paragraphes[$k]);
-			}elseif(strpos(strip_tags($paragraphes[$k], "Prix"))!==false){
+			}elseif(preg_match("/prix/i", $paragraphes[$k])){
 				$prix=strip_tags($paragraphes[$k]);
-			}elseif(strpos(strip_tags($paragraphes[$k], "bains"))!==false){
+			}elseif(preg_match("/bains/i", $paragraphes[$k])){
 				$bains=strip_tags($paragraphes[$k]);
 			}
+			$ville=strip_tags($paragraphes[0]);
 		}
-		echo strpos(strip_tags($paragraphes[$k]), "Surface");
 		$description=strip_tags($paragraphes[count($paragraphes)-1]);
 		
 		//Récupération des images miniatures
@@ -88,6 +86,7 @@ while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&
 		//Insertion des valeurs dans la base de données
 		
 		$sql="insert into locations(id_location,lien_image_principale,ville,surface,pieces,chambre,douche,prix,bains,description,lien_image2,lien_image3) values($num_annonce,'$lien_image_principale','".mysql_escape_string($ville)."','".mysql_escape_string($surface)."','".mysql_escape_string($pieces)."','".mysql_escape_string($chambre)."','".mysql_escape_string($douche)."','".mysql_escape_string($prix)."','".mysql_escape_string($bains)."','".mysql_escape_string($description)."','$lien_image_2','$lien_image_3')";
+		echo $sql;
 		$result=mysql_query($sql) or die ($result.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	}
 	
