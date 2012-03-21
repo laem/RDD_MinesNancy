@@ -75,7 +75,7 @@
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 		<div class="desc">
-		'.$row['prix']'.
+		'.$row['prix'].'
 		</div>
 		</div><br>';				
 	}
