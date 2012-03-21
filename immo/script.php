@@ -3,7 +3,6 @@ include('sql_conf.php');
 include('simple_html_dom.php');
 $db = mysql_connect($sql_url,$sql_login,$sql_pass)  or die('Erreur de connexion '.mysql_error());
 mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
-mysql_set_charset( 'utf8' );
 
 //Mise à zéro de la BDD
 $sql="truncate table locations";
