@@ -229,7 +229,7 @@ if(isset($_POST["login"])){
 //si non identifié
 if((isset($_POST['connection']) && $_POST['mdp']=="rddream_power") || isset($_POST['retour'])){
 	
-	$sql="Select * from espace_eleve order by etat_commande desc";
+	$sql="Select * from espace_eleve order by nom asc";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 ?>
 	<br><br>
@@ -262,6 +262,7 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
             <?php    
 $total_eleves=NULL;
 $total_rdd=NULL;
+$sql="Select * from espace_eleve order by etat_commande desc, nom asc";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 while($row = mysql_fetch_array($req)){
 	$dvd=$row['nbr_dvd'];
