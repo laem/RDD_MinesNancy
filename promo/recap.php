@@ -262,6 +262,12 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
             <?php    
 $total_eleves=NULL;
 $total_rdd=NULL;
+$total_dvd=NULL;
+$total_lampe=NULL;
+$total_poster=NULL;
+$total_yearbook=NULL;
+$total_pack=NULL;
+$total_super_pack=NULL;
 $sql="Select * from espace_eleve order by etat_commande desc, nom asc";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 while($row = mysql_fetch_array($req)){
@@ -285,6 +291,12 @@ while($row = mysql_fetch_array($req)){
 		$lampe--;
 		$dvd--;
 	}
+	$total_pack+=$pack;
+	$total_super_pack+=$super_pack;
+	$total_dvd+=$dvd;
+	$total_lampe+=$lampe;
+	$total_yearbook+=$yearbook;
+	$total_poster+=$poster;
 	$total=63*$super_pack+59*$pack+5*$dvd+15*$yearbook+5*$poster+42*$lampe;
 	$total_eleves+=$total;
 	$total_rdd+=63.5*$super_pack+58.5*$pack+3*$dvd+15.5*$yearbook+5*$poster+40*$lampe;
@@ -328,6 +340,21 @@ while($row = mysql_fetch_array($req)){
 }
 
 ?>
+<tr>
+<td colspan="9">
+</td>
+</tr>
+<tr>
+    <td>Total objets</td>
+    <td><?php echo $total_dvd; ?></td>
+    <td><?php echo $total_lampe; ?></td>
+    <td><?php echo $total_yearbook; ?></td>
+    <td><?php echo $total_poster; ?></td>
+    <td><?php echo $total_super_pack; ?></td>
+    <td><?php echo $total_pack; ?></td>
+    <td></td>
+    <td></td>
+    </tr>
 </table>
 <br /><br />
 <table>
@@ -336,7 +363,7 @@ while($row = mysql_fetch_array($req)){
 <td><?php echo $total_eleves." €"; ?></td>
 </tr>
 <tr>
-<td>Total RDD</td>
+<td>Total RDD<br />Total valable pour au moins 60 DVD, 70 lampes et 70 yearbook</td>
 <td><?php echo $total_rdd." €"; ?></td>
 </tr>
 <tr>
