@@ -35,9 +35,7 @@ if (isset($_FILES['picture']))
 			if ($_FILES['picture']['size'] <= 2000000)
 			{
 				$picture = $mail . "." . $extension_upload;
-				if(!move_uploaded_file($_FILES['picture']['tmp_name'], '../pics/' . $picture)){
-					$error="sz";	
-				}
+				move_uploaded_file($_FILES['picture']['tmp_name'], '/../pics/' . $picture);     
 			}
 			else
 			{
