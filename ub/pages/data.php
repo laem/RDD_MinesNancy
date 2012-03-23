@@ -39,7 +39,7 @@ if (isset($_FILES['picture']))
 			{
 				$picture = $mail . "." . $extension_upload;
 				move_uploaded_file($_FILES['picture']['tmp_name'], '/../pics/' . $picture);   
-				echo "ok5";
+				echo '/../pics/' . $picture;
 			}
 			else
 			{
