@@ -21,21 +21,25 @@ $prenom = substr($mail,0,$point);
 $nom = ucfirst(strtolower($nom));
 $prenom = ucfirst(strtolower($prenom));
 $mail = strtolower($mail);
-
+echo "ok1";
 /* Picture */
 if (isset($_FILES['picture']))
 {
+	echo "ok2";
 	if($_FILES['picture']['error'] == 0)
 	{
+		echo "ok3";
 		$infosfichier = pathinfo($_FILES['picture']['name']);
 		$extension_upload = strtolower($infosfichier['extension']);
 		$extensions = array('jpg', 'jpeg', 'gif', 'png', 'bmp');
 		if (in_array($extension_upload, $extensions))
 		{
+			echo "ok4";
 			if ($_FILES['picture']['size'] <= 2000000)
 			{
 				$picture = $mail . "." . $extension_upload;
-				echo move_uploaded_file($_FILES['picture']['tmp_name'], '/../pics/' . $picture);     
+				move_uploaded_file($_FILES['picture']['tmp_name'], '/../pics/' . $picture);   
+				echo "ok5";
 			}
 			else
 			{
