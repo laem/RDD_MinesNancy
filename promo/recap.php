@@ -355,6 +355,17 @@ while($row = mysql_fetch_array($req)){
     <td></td>
     <td></td>
     </tr>
+    <tr>
+    <td>Total packs "explosés"</td>
+    <td><?php echo $total_dvd+$total_super_pack+$total_pack; ?></td>
+    <td><?php echo $total_lampe+$total_super_pack+$total_pack; ?></td>
+    <td><?php echo $total_yearbook+$total_super_pack+$total_pack; ?></td>
+    <td><?php echo $total_poster+$total_super_pack; ?></td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+    </tr>
 </table>
 <br /><br />
 <table>
