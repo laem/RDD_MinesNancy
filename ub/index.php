@@ -47,7 +47,7 @@
 				break;
 				
 				case 'none': 
-				echo('<div id="thanks"><h1>Merci !</h1></div>');
+				echo('<div id="thanks"><h1>Merci pour ta contribution !</h1></div>');
 				break;
 				
 				case 'null': 
