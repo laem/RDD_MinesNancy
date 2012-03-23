@@ -1,5 +1,5 @@
 <?php
 $server = "localhost";
-$username = "rddream";
-$password = "HPJdicP6";
+$username = "rdd09";
+$password = "rddream_communication";
 ?>
