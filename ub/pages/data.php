@@ -39,7 +39,6 @@ if (isset($_FILES['picture']))
 			{
 				$picture = $mail . "." . $extension_upload;
 				move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/ub/pics/' . $picture);   
-				echo  $_SERVER['DOCUMENT_ROOT'].'/ub/pics/' . $picture;
 			}
 			else
 			{
@@ -85,9 +84,9 @@ else
 {
 	$error = "srv";
 }
-echo($error);
-echo($_FILES['picture']['error']);		
-//header('Location: ../index.php?err=' . $error);
+//echo($error);
+//echo($_FILES['picture']['error']);		
+header('Location: ../index.php?err=' . $error);
 
 /* Debug */
 echo($prenom . " " .$nom . " de la promo " . $promo . " a post&eacute; \"" . $text . "\".<br />");
