@@ -33,8 +33,10 @@ if (isset($_FILES['picture']))
 		{
 			if ($_FILES['picture']['size'] <= 2000000)
 			{
+				echo "ok";
 				$picture = $nom."_".$prenom."_".$mail . "." . $extension_upload;
-				move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/ub/pics/' . $picture);   
+				echo(move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/ub/pics/' . $picture));
+				echo "ok2";
 			}
 			else
 			{
