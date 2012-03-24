@@ -82,9 +82,9 @@ else
 {
 	$error = "srv";
 }
-echo($error);
-echo($_FILES['picture']['error']);		
-//header('Location: ../index.php?err=' . $error);
+//echo($error);
+//echo($_FILES['picture']['error']);		
+header('Location: ../index.php?err=' . $error);
 
 /* Debug */
 echo($prenom . " " .$nom . " de la promo " . $promo . " a post&eacute; \"" . $text . "\".<br />");
