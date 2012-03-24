@@ -60,7 +60,6 @@ else
 }
 
 if($error == "none" AND $prenom != "")
-if(strpos($mail,"@")>0){
 {
 	$bdd = mysql_connect($server, $username, $password)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($username,$bdd);
@@ -76,9 +75,6 @@ if(strpos($mail,"@")>0){
 			'picture' => $picture
 		));*/
 	mysql_close($bdd);
-}
-else{
-	$error="mail";
 }
 else
 {
