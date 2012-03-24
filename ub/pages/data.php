@@ -21,20 +21,16 @@ $prenom = substr($mail,0,$point);
 $nom = ucfirst(strtolower($nom));
 $prenom = ucfirst(strtolower($prenom));
 $mail = strtolower($mail);
-echo "ok1";
 /* Picture */
 if (isset($_FILES['picture']))
 {
-	echo "ok2";
 	if($_FILES['picture']['error'] == 0)
 	{
-		echo "ok3";
 		$infosfichier = pathinfo($_FILES['picture']['name']);
 		$extension_upload = strtolower($infosfichier['extension']);
 		$extensions = array('jpg', 'jpeg', 'gif', 'png', 'bmp');
 		if (in_array($extension_upload, $extensions))
 		{
-			echo "ok4";
 			if ($_FILES['picture']['size'] <= 2000000)
 			{
 				$picture = $mail . "." . $extension_upload;
@@ -64,10 +60,11 @@ else
 }
 
 if($error == "none" AND $prenom != "")
+if(strpos($mail,"@")>0){
 {
 	$bdd = mysql_connect($server, $username, $password)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($username,$bdd);
-	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".$prenom."','".$nom."','".$mail."','".$promo."','".$text."','".$picture."')";
+	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".$picture."')";
 	mysql_query($sql) or die('Erreur SQL !'. $sql.mysql_error());
 		/*$req = $bdd->prepare('INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES(:prenom, :nom, :mail, :promo, :text, :picture)');
 		$req->execute(array(
@@ -79,6 +76,9 @@ if($error == "none" AND $prenom != "")
 			'picture' => $picture
 		));*/
 	mysql_close($bdd);
+}
+else{
+	$error="mail";
 }
 else
 {

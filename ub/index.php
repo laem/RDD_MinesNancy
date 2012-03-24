@@ -46,6 +46,12 @@
 				include('pages/formulaire.php');
 				break;
 				
+				case 'mail': // Serveur free
+				echo('<div id="error"><h1>Mail incorrect !</h1></div>  ');
+				include('pages/txt_accueil.php');
+				include('pages/formulaire.php');
+				break;
+				
 				case 'none': 
 				echo('<div id="thanks"><h1>Merci pour ta contribution !</h1></div>');
 				break;
