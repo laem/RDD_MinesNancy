@@ -26,7 +26,7 @@
 		
 					<fieldset id="user-message">
 		
-						<label for="text">Votre message (3000 caractères max.):</label> 
+						<label for="text">Votre message (3000 caract&egrave;res max.):</label> 
 						<textarea id="text" name="text" rows="0" cols="0" maxlength="3000"></textarea> 
 		
 						<input type="submit" value="Envoyer" name="submit" class="submit" />		
