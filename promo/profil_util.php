@@ -1127,7 +1127,7 @@ if(mysql_num_rows($req)==0){
 			<textarea name="faits_marquants" ><?php echo mysql_result($req,0,'faits_marquants'); ?></textarea>
 			<br>
             
-            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-1">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom de tes parents.</strong></font><br>
+            <label for="adresse_parents">L'adresse de tes parents :</label><br><font size="-1">Cette adresse sera utilisée par la com' de l'école pour inviter tes parents à la RDD ! <strong>Précise aussi le nom et prénom de tes parents. Tu peux mettre deux adresses.</strong></font><br>
 			<textarea name="adresse_parents" ><?php echo mysql_result($req,0,'adresse_parents'); ?></textarea>
 			<br>
             
