@@ -381,6 +381,10 @@ while($row = mysql_fetch_array($req)){
 <td>Résultat</td>
 <td><?php echo ($total_eleves-$total_rdd)." €"; ?></td>
 </tr>
+<tr>
+<td>Résultat (frais de ports inclus)</td>
+<td><?php echo ($total_eleves-$total_rdd-3*8)." €"; ?></td>
+</tr>
 </form>            
 <?php
 }elseif(isset($_POST['eleve'])){
