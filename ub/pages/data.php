@@ -65,7 +65,7 @@ if($error == "none" AND $prenom != "")
 {
 	$bdd = mysql_connect($server, $username, $password)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($username,$bdd);
-	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".$picture."')";
+	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".mysql_escape_string($picture)."')";
 	mysql_query($sql) or die('Erreur SQL !'. $sql.mysql_error());
 		/*$req = $bdd->prepare('INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES(:prenom, :nom, :mail, :promo, :text, :picture)');
 		$req->execute(array(
