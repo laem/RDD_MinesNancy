@@ -34,7 +34,7 @@ if (isset($_FILES['picture']))
 			if ($_FILES['picture']['size'] <= 2000000)
 			{
 				echo "ok";
-				$picture = $nom."_".$prenom."_".$mail . "." . $extension_upload;
+				$picture = str_replace("'","",$nom."_".$prenom."_".$mail . "." . $extension_upload);
 				echo(move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/ub/pics/' . $picture));
 				echo "ok2";
 			}
@@ -65,7 +65,7 @@ if($error == "none" AND $prenom != "")
 {
 	$bdd = mysql_connect($server, $username, $password)  or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($username,$bdd);
-	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".mysql_escape_string($picture)."')";
+	$sql = "INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".mysql_escape_string(str_replace("'","",$picture))."')";
 	mysql_query($sql) or die('Erreur SQL !'. $sql.mysql_error());
 		/*$req = $bdd->prepare('INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES(:prenom, :nom, :mail, :promo, :text, :picture)');
 		$req->execute(array(
