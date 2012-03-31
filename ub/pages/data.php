@@ -31,7 +31,7 @@ if (isset($_FILES['picture']))
 		$extensions = array('jpg', 'jpeg', 'gif', 'png', 'bmp');
 		if (in_array($extension_upload, $extensions))
 		{
-			if ($_FILES['picture']['size'] <= 2000000)
+			if ($_FILES['picture']['size'] <= 20000000)
 			{
 				echo "ok";
 				$picture = str_replace("'","",$nom."_".$prenom."_".$mail . "." . $extension_upload);
