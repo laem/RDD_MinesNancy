@@ -106,25 +106,27 @@ input:hover, textarea:hover
 	background: #eee; 
 }
 		
-/*input.submit 
+input.submit 
 { 	
 	width: 150px; 
-	color: #eee; 
+	color: #000 ; 
+	border:solid;
+	border-color:#999;
 	text-transform: uppercase; 
 	margin-top: 10px;
 	background-color: #18a5cc;
-	border: none;
-	*/	
+	/*border: none;*/
+		
 	/* -- CSS3 Transition - define which property to animate (i.e. the shadow)  -- */
-	/*-webkit-transition: -webkit-box-shadow 0.3s linear;*/
+	-webkit-transition: -webkit-box-shadow 0.3s linear;
 		
 	/* -- CSS3 - Rounded Corners -- */
-	/*-moz-border-radius: 4px; 
+	-moz-border-radius: 4px; 
 	-webkit-border-radius: 4px;
-	border-radius: 4px; */
+	border-radius: 4px; 
 						
 	/* -- CSS3 Shadow - create a shadow around each input element -- */ 
-	/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
 	background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);		
 } 
 	
@@ -136,7 +138,7 @@ input.submit:hover
 	cursor:  pointer; 
 } 		
 				
-*/
+
 #error
 {
 	background-color: pink;	
