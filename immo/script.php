@@ -13,8 +13,7 @@ $i=1;
 
 
 while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&TypeTransaction=1')){
-echo $i;
-$html = file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&TypeTransaction=1');
+	$html = file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&TypeTransaction=1');
 	
 	//Recherche du div des annonces
 	$liste = $html->find('div[id=Liste]'); 
@@ -25,6 +24,7 @@ $html = file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.
 	}
 	
 	//Récupération des liens vers les différentes fiches
+	$liens_fiche=NULL;
 	foreach($annonces as $annonce){	
 		$liens_fiche[]=$annonce->find('a', 0)->href;
 	}
