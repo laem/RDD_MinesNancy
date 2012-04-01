@@ -10,6 +10,7 @@ $result=mysql_query($sql) or die;
 
 //Aquisition de la page
 $i=1;
+echo $i;
 
 while(file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&TypeTransaction=1')){
 	$html = file_get_html('http://www.ladresse-grandnancy.com/liste.asp?pageno='.$i.'&TypeTransaction=1');
