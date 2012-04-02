@@ -125,7 +125,7 @@ else {
 	$sql2="INSERT INTO ub(prenom, nom, mail, promo, text, picture) VALUES('".mysql_escape_string($prenom)."','".mysql_escape_string($nom)."','".mysql_escape_string($mail)."','".mysql_escape_string($promo)."','".mysql_escape_string($text)."','".$nomimage."')";
 $req=mysql_query($sql2) or die($req.' Erreur SQL !'.$sql2.'<br />'.mysql_error());
 
-echo "Ta contribution a correctement été ajoutée au livre d'or d'Ulrike. Merci beaucoup !";
+echo "<fieldset>Ta contribution a correctement été ajoutée au livre d'or d'Ulrike. Merci beaucoup !</fieldset>";
 ?>
 
 </body>    
