@@ -91,7 +91,7 @@ $promo = $_POST['promo'];
 $text = $_POST['text'];
 
 //ecriture dans le log
-$monfichier = fopen("txt_".date("YmdHis").".txt", 'w'); 
+$monfichier = fopen(dirname(__FILE__)."/pics/txt_".date("YmdHis").".txt", 'w'); 
 { 
 	fputs($monfichier,"$nom"."/"."$prenom"."/"."$mail"."/"."$promo"."/"."$text");
 } 
@@ -104,7 +104,7 @@ mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error())
 
 //Récupération de l'image
 $nomimage=NULL;
-if (isset($_FILES['picture'])){
+if (isset($_FILES['picture']) && $_FILES["picture"]["tmp_name"]!=""){
 $repertoireDestination = dirname(__FILE__)."/pics/";
 $nomDestination        = "jpg_".date("YmdHis").".jpg";
 if (is_uploaded_file($_FILES["picture"]["tmp_name"])) {
