@@ -33,7 +33,7 @@
 				echo("<br /> Message personnel : <br />");
 				echo($data['text']);
 				echo("<br />");
-				if($data['picture'] != "null")
+				if($data['picture'] != "")
 				{
 					echo('<img src="pics/' . $data['picture'] . '" alt="' . $data['mail'] . '" />');
 				}
