@@ -758,7 +758,7 @@ if(mysql_num_rows($req)==0){
             <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
             <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
             <fieldset>
-            <center><font size="+1">Etat de ta commande : <strong>
+            <center><font size="+2">Etat de ta commande : <strong>
             <?php
 			if(mysql_result($req,0,'etat_commande')==0){
 				echo " Nouvelle commande";
@@ -1029,11 +1029,11 @@ if(mysql_num_rows($req)==0){
 			</script>
             <br>
             <?php
-            if(mysql_result($req,0,'etat_commande')<2){
+            if(mysql_result($req,0,'etat_commande')>2){
 				echo '<input type="submit" value="Valider la commande &#13;&#10;de Goodies" name="valider_commande" class="submit" onClick="return confirmation_goodies();"/>';
 			}else{
 				echo "<br>";
-				echo "Il n'est plus possible de valider ta commande. (paiement reçu)";
+				echo "La commande des goodies est clos. Il n'est plus possible d'effectuer de commande";
 			}
 			?>
             
@@ -1174,9 +1174,10 @@ if(mysql_num_rows($req)==0){
 			<br>
             
             <center>
-            <input type="submit" value="Valider et accéder &#13;&#10; à la commande &#13;&#10;de Goodies" name="commande" class="submit"/>
-            <br>
+            
             <input type="submit" value="Valider seulement &#13;&#10; ces informations" name="valider_infos" class="submit"/>
+            <br>
+            <input type="submit" value="Accéder au suivi&#13;&#10;de ma commande&#13;&#10;de Goodies" name="commande" class="submit"/>
             <br>
             <input type="submit" value="Se déconnecter" name="deconnection" class="submit">	                    
             </center>
