@@ -758,13 +758,13 @@ if(mysql_num_rows($req)==0){
             <input type="hidden" name="login" value="<?php echo mysql_result($req,0,'identifiant'); ?>" />          
             <input type="hidden" name="mdp" value="<?php echo mysql_result($req,0,'mot_de_passe'); ?>"  />
             <fieldset>
-            <center><font size="+2">Etat de ta commande : <strong>
+            <center><font size="+2" color="red">Etat de ta commande : <strong>
             <?php
 			if(mysql_result($req,0,'etat_commande')==0){
-				echo " Nouvelle commande";
+				echo "Aucune commande effectuée";
 			}
 			if(mysql_result($req,0,'etat_commande')==1){
-				echo " Commande enregistrée : <u>en attente de paiement.</u><font size='-1'><br> La commande est encore modifiable jusqu'au 30 mars.</font>";
+				echo " Commande enregistrée : <u>en attente de paiement.</u><font size='-1'> La commande n'est plus modifiable.</font>";
 			}
 			if(mysql_result($req,0,'etat_commande')==2){
 				echo " Paiement reçu. <font size='-1'><br>
