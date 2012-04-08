@@ -1175,7 +1175,7 @@ if(mysql_num_rows($req)==0){
             
             <center>
             
-            <input type="submit" value="Valider seulement &#13;&#10; ces informations" name="valider_infos" class="submit"/>
+            <input type="submit" value="Valider &#13;&#10; ces informations" name="valider_infos" class="submit"/>
             <br>
             <input type="submit" value="Accéder au suivi&#13;&#10;de ma commande&#13;&#10;de Goodies" name="commande" class="submit"/>
             <br>
