@@ -383,12 +383,14 @@ if(isset($_POST["login"])){
 			if(mail==""){
 				alert("Merci de préciser une adresse mail !");
 				return false;
+			}else{
+				return true;
 			}
-			if (window.confirm("L'adresse mail "+mail+" est-elle correcte ? Elle est nécessaire pour un bon traitement de ta commande.")){
+/*			if (window.confirm("L'adresse mail "+mail+" est-elle correcte ? Elle est nécessaire pour un bon traitement de ta commande.")){
 					return true;
 			} else{
 				return false;
-			}
+			}*/
 		}
 		
 		function confirmation_goodies(){
