@@ -56,7 +56,7 @@ h3{
 	font-size:40px;
 	line-height:45px;
 }
-h4{
+h4,h6{
 	font-size:14px;
 	line-height:20px;
 	color:#575757;
@@ -64,10 +64,29 @@ h4{
 	font-weight:bold;
 	
 }
-p{
+h5{
 	font-size:14px;
 	line-height:20px;
+	color:#FFBB2F;
 	margin-bottom:20px;
+	font-weight:bold;	
+}
+h6{
+	font-style:italic;
+}
+p{
+	font-size:14px;
+	text-align:justify;
+	line-height:20px;
+	margin-bottom:20px;
+}
+.tabs-list li{
+	text-align:left;
+	margin-left:140;
+}
+
+table{
+	width:670px;
 }
 
 /* ----aside---- */
@@ -81,7 +100,7 @@ aside{
 /* ----nav---- */
 nav{
 	text-align:center;
-	margin-bottom:20px;
+	margin-bottom:25px;
 }
 
 nav .logo{
@@ -110,8 +129,8 @@ nav .logo span{
 nav ul{
 	/*background:url(../images/nav_bg.png) no-repeat bottom center;*/
 	font-family: "LeagueGothicRegular", Arial, Helvetica, sans-serif;
-	font-size:30px;
-	padding-top:30px;
+	font-size:27px;
+	padding-top:20px;
 	background:url(../images/nav_bg.png) no-repeat top center;
 	text-transform:uppercase;
 }
@@ -218,8 +237,8 @@ ul.ps_nav li{
 ul.ps_nav li a{
 	display:block;
 	text-indent:-9000px;
-	width:13px;
-	height:13px;
+	width:0px;
+	height:0px;
 	outline:none;
 	padding:0px 3px;
 	background:transparent url(../images/dot2.png) no-repeat top center;
@@ -261,7 +280,7 @@ ul.ps_nav li.ps_preview span{
 
 /* ----sections---- */
 
-#home, #calendrier, #guide, #contact, #promo, #sponsor{
+#home, #calendrier, #guide, #contact, #promo, #sponsor, #artem, #alumni{
 	position:relative;
 	margin-bottom:500px;
 	float:left;
@@ -638,6 +657,26 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
 	font-weight:normal;
 }
 
+/* Transports */
+.transport li h4{
+	border-bottom:1px solid #E3CFBF;
+}
+
+.transport li{
+	list-style:none;
+}
+
+/* Alumni */
+.alumni li{
+	padding:5px;
+	list-style:none;
+	font-weight:normal;
+	color:#575757;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:13px;
+	text-align:justify;
+}
+
 /* Tabs */
 
     #tabs-wrapper{  
@@ -660,14 +699,14 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
     .tabs-promo li a {  
         padding:4px 10px 4px 10px; 
         font-size: 12px;
-	float:left;
-	margin-top:5px;
+		float:left;
+		margin-top:5px;
     } 
     .tabs-list{
     	padding-top:120px;
     }
     .tabs-contact li a {  
-        padding:4px 80px 4px 80px; 
+        padding:4px 122px 4px 122px; 
         font-size: 14px;
     } 
     .tabs li a:hover{  
@@ -677,11 +716,14 @@ a:link { -webkit-tap-highlight-color: #FFBB2F; }
         background:#999;  
         color:#f0f0f0;  
     }  
+	.tabs-guide ul{
+		list-style-type:none;
+	}
     
 /* Social nav */
 
 .social_nav{
-	margin:0 0 30px 70px;
+	margin:0 0 10px 70px;
 }
 .social_nav li{
 	text-indent:-9999999px;
@@ -765,12 +807,13 @@ body, select, input, textarea {   color: #333; }
 }
 .logo img {
 	left: 60px;
-    	position: relative;
-    	top: -75px;
+	position: relative;
+	top: -75px;
 }
 #logo-wrapper .date{
-	font-size:12px;
-	color:#7A6765;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFBB2F;
 	line-height:20px;
 }
 /*
