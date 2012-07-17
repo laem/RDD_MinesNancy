@@ -13,19 +13,22 @@
 <link rel="stylesheet" type="text/css" href="shadowbox.css">
 <script type="text/javascript" src="js/shadowbox.js"></script>
 <script type="text/javascript">
-Shadowbox.init();
+Shadowbox.init({
+    language:   "en",
+    players:    ["flv", "swf"]
+});
+
+function AlertMessage(){
+    Shadowbox.open({
+        player:     'swf',
+        content:    'trailer.swf',
+        height:     470,
+        width:      800
+    });
+}
+
 setTimeout(Shadowbox.close,102000);
 
-
-	function simulateClick(elmt) {
-	if(document.all) {
-		elmt.fireEvent("onclick");
-		} else {
-			var evt = document.createEvent("MouseEvents");
-			evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-			elmt.dispatchEvent(evt);
-		}
-	}
 </script>
 
 
@@ -57,7 +60,9 @@ setTimeout(Shadowbox.close,102000);
 		TagCanvas.outlineThickness='10';
 		TagCanvas.initial= [0.3,0.3];
 		TagCanvas.Start('myCanvas');
-		simulateClick(document.getElementById('onload'));
+ //action après le click sur inscription
+  //alert("inscription cliqué");
+
     } catch(e) {
       // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
@@ -72,7 +77,7 @@ var slide_auto=true;
  
 </head>
 
-<body>
+<body onload="AlertMessage();">
 <div id="page">
   <aside id="sidebar">
     <nav>
@@ -179,8 +184,6 @@ var slide_auto=true;
       LANDING TEXT 
       ----------------->
      <!-- lecture vidéo -->
-<a  id="onload" href="trailer.swf" rel="shadowbox;height=480;width=800"></a>
-
 		<p style="color:#C00;font-weight:bold">Nous vous conseillons de réserver très vite votre chambre d'hôtel : un évènement sportif d'ampleur a lieu à Nancy le même week-end. Plus d'infos sur les hôtels <a href="index.html#guide">ici</a></p>
       <p>
       La cérémonie de remise des diplômes de la promotion 2009 FICM et FIMGP des Mines de Nancy aura lieu le <strong>Samedi 22 Septembre 2012</strong> au sein du prestigieux Palais des Congrès de Nancy.
@@ -542,7 +545,7 @@ var slide_auto=true;
         
         <div class="tab-content" id="ficm">
         <h3>Philippe Guillemot</h3>
-        <h6>Poste<br>
+        <!--<h6>Poste<br>-->
         Promotion Nancy 1979</h6>
         
         <h5>Parcours</h5>
@@ -564,7 +567,7 @@ var slide_auto=true;
         <ul style="list-style-type:none;text-align:justify">        
         <li>Yves BAILLY (1961) est actuellement le Président-directeur Général de la Société Norske Skob Golbey SAS (NSG), filiale du groupe norvégien Norske Skogindustrier (NSI). NSG, dont le siège social se trouve à Epinal dans les Vosges, fabrique du papier journal à partir de bois et de papiers récupérés.</li><br>
         
-        <li>Titulaire d’un diplôme d’ingénieur (Ecole des Mines) et d’un MBA (HEC Paris), il a rejoint la société Norske Skog Golbey en 1992 et y a occupé plusieurs fonctions, entre autres Directeur de production et Directeur Général Adjoint. En 2005, il est nommé Vice Président et Directeur Technique de Pan Asia à Séoul et depuis 2006, il dirige la société Norske Skog Golbe.</li><br>
+        <li>Titulaire d’un diplôme d’ingénieur (Ecole des Mines) et d’un MBA (HEC Paris), il a rejoint la société Norske Skog Golbey en 1992 et y a occupé plusieurs fonctions, entre autres Directeur de production et Directeur Général Adjoint. En 2005, il est nommé Vice Président et Directeur Technique de Pan Asia à Séoul et depuis 2006, il dirige la société Norske Skog Golbey.</li><br>
         
         <li>Yves Bailly est également Directeur Général de Norske Skogindustrier Branch (NSIB, succursale en France du Groupe NSI), Président du Conseil d’Administration de PARENCO (Unité de production papiers, Hollande) ainsi que membre du Conseil d’Administration des sociétés PAVATEX et SAPIN (Société d’approvisionnement en bois). Il représente également la profession au sein de nombreuses organisations papetières et est Président du syndicat PAPEST, qui regroupe 24 entreprises adhérentes.</li>
         </ul>
@@ -943,6 +946,7 @@ var slide_auto=true;
                     <li>Mathias SCHMIDT</li>
                     <li>Alexandra SWISTEK</li>
                     <li>Aurélien TARDY</li>
+                    <li>Raphaël VOLLET</li>
                     <li>Florent WADIER</li>
                 </ul>
             </td>
