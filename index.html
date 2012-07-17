@@ -15,19 +15,33 @@
 <!-- lecteur video -->
 <link rel="stylesheet" type="text/css" href="shadowbox.css">
 <script type="text/javascript" src="js/shadowbox.js"></script>
+
+<!-- nuage de tag -->
+<script src="js/tagcanvas.js" type="text/javascript"></script>
+
 <script type="text/javascript">
+
 Shadowbox.init({
     language:   "en",
     players:    ["flv", "swf"]
 });
 
-function AlertMessage(){
-    Shadowbox.open({
+function video_tag_auto(){
+  	 Shadowbox.open({
         player:     'swf',
         content:    'trailer.swf',
         height:     470,
         width:      800
     });
+	 
+	 //Démarrage du nuage de tag
+	 
+	TagCanvas.textColour = '#FF9900';
+	TagCanvas.outlineColour = '#FBFBFB';
+	TagCanvas.textHeight= '25';
+	TagCanvas.outlineThickness='10';
+	TagCanvas.initial= [0.3,0.3];
+	TagCanvas.Start('myCanvas');
 }
 
 setTimeout(Shadowbox.close,102000);
@@ -51,27 +65,6 @@ setTimeout(Shadowbox.close,102000);
 
 </script>
 
-<!-- Starting of the tag cloud -->
-<script src="js/tagcanvas.js" type="text/javascript"></script>
-
- <script type="text/javascript">
-  window.onload = function() {
-    try {
-		TagCanvas.textColour = '#FF9900';
-		TagCanvas.outlineColour = '#FBFBFB';
-		TagCanvas.textHeight= '25';
-		TagCanvas.outlineThickness='10';
-		TagCanvas.initial= [0.3,0.3];
-		TagCanvas.Start('myCanvas');
- //action après le click sur inscription
-  //alert("inscription cliqué");
-
-    } catch(e) {
-      // something went wrong, hide the canvas container
-      document.getElementById('myCanvasContainer').style.display = 'none';
-    }
-  };
- </script>
  
 <script type="text/javascript">
 var slide_auto=true;
@@ -80,7 +73,7 @@ var slide_auto=true;
  
 </head>
 
-<body onload="AlertMessage();">
+<body onload="video_tag_auto();">
 <div id="page">
   <aside id="sidebar">
     <nav>
