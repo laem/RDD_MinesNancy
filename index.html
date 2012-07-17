@@ -9,12 +9,29 @@
 <link href="css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<!-- lecteur video -->
+<link rel="stylesheet" type="text/css" href="shadowbox.css">
+<script type="text/javascript" src="js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+setTimeout(Shadowbox.close,102000);
+
+
+	function simulateClick(elmt) {
+	if(document.all) {
+		elmt.fireEvent("onclick");
+		} else {
+			var evt = document.createEvent("MouseEvents");
+			evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			elmt.dispatchEvent(evt);
+		}
+	}
+</script>
+
+
+<!-- fin lecteur -->
 
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-30461311-1']);
   _gaq.push(['_trackPageview']);
@@ -24,10 +41,35 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
 
 </script>
 
+<!-- Starting of the tag cloud -->
+<script src="js/tagcanvas.js" type="text/javascript"></script>
 
+ <script type="text/javascript">
+  window.onload = function() {
+    try {
+		TagCanvas.textColour = '#FF9900';
+		TagCanvas.outlineColour = '#FBFBFB';
+		TagCanvas.textHeight= '25';
+		TagCanvas.outlineThickness='10';
+		TagCanvas.initial= [0.3,0.3];
+		TagCanvas.Start('myCanvas');
+		simulateClick(document.getElementById('onload'));
+    } catch(e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+  };
+ </script>
+ 
+<script type="text/javascript">
+var slide_auto=true;
+	   setInterval("if(slide_auto==true){document.getElementById(\"suivant\").click();}",3000);
+</script>
+ 
 </head>
 
 <body>
@@ -42,19 +84,21 @@
      	<li class="active" id="nav-1"><a href="#home">Accueil</a></li>
         <li id="nav-2"><a href="#calendrier">Calendrier</a></li>
         <li id="nav-3"><a href="#guide">Guide de Nancy</a></li>
-        <li id="nav-5"><a href="#sponsor">Parrain de promo</a></li> 
-        <li id="nav-6"><a href="#promo">Promotion 09</a></li>                     
-        <li id="nav-4"><a href="#contact">Contact</a></li>          
+		<li id="nav-4"><a href="#sponsor">Parrain de promo</a></li>
+        <li id="nav-5"><a href="#promo">Promotion 09</a></li>     
+        <li id="nav-6"><a href="#alumni">ALUMNI</a></li>          
+        <li id="nav-7"><a href="#artem">ARTEM</a></li>                  
+        <li id="nav-8"><a href="#contact">Contact</a></li>          
 
       </ul>
       <div class="bg_bottom"></div>
       <div id="espace_eleves">
-      		<abbr title="Connecte-toi pour commander tes goodies !"><a href="promo/profil_util.php">Espace Elèves</a></abbr>
+      		<a href="promo/profil_util.php">Espace Elèves</a>
       </div>
       <div id="social_nav_wrapper">
 	      	    <ol class="social_nav">
-		        <li class="facebook"><a href="https://www.facebook.com/rddn09" target="blank">Facebook</a></li>
-		        <li class="location"><a href="http://maps.google.co.uk/maps?daddr=Parc+de+Saurupt,+54000+Nancy,+France&hl=en&cid=0,0,15591829856014748163&fb=1&hq=ecole+des+mines+de+nancy&gl=uk&geocode=0,48.678589,6.183001&t=m&z=16" target="blank">Location</a></li>
+		        <li class="facebook"><abbr title="Notre page Facebook pour suivre les dernières actualités de la RDD !"><a href="https://www.facebook.com/rddn09" target="blank">Facebook</a></abbr></li>
+		        <abbr title="Comment trouver ARTEM ?"><li class="location"><a href="https://maps.google.fr/maps?q=48.672584,6.172321&sll=48.672598,6.172352&t=v&z=17" target="blank">Location</a></li></abbr>
 		    </ol>
       </div>
     </nav>
@@ -80,17 +124,47 @@
       <div id="ps_container" class="ps_container"> 
         <div class="ps_image_wrapper"> 
           <!-- First initial image --> 
-          <img src="images/panorama_nuit.jpg" alt="" /> </div>
+          <img src="images/slide/slide_001.jpg" alt="" /> </div>
         <!-- Navigation items -->
-        <div class="ps_next"></div>
-        <div class="ps_prev"></div>
+        <div class="ps_next" id="suivant" ></div>
+        <div class="ps_next" id="suivant2" onClick="slide_auto=false;"></div>
+        <div class="ps_prev" onClick="slide_auto=false;"></div>
         <!-- Dot list with thumbnail preview -->
         <ul class="ps_nav">
-          <li class="selected"><a href="images/panorama_nuit.jpg" rel="images/thumbs/panorama_nuit.jpg">Nancy by night</a></li>
-          <li><a href="images/promo.jpg" rel="images/thumbs/promo.jpg">Lipdub</a></li>
-          <li><a href="images/ski.jpg" rel="images/thumbs/ski.jpg">Semaine ski</a></li>
-          <li><a href="images/vpromo.jpg" rel="images/thumbs/vpromo.jpg">Voyage promo - les grands lacs</a></li>          
-          <li><a href="images/cartel1.jpg" rel="images/thumbs/cartel1.jpg">Le cartel à Bochum</a></li>
+          <li class="selected"><a href="images/slide/slide_003.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_002.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_001.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_004.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_005.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_006.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_007.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_008.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_009.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_010.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_011.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_012.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_013.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_014.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_015.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_016.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_017.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_018.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_019.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_020.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_021.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_022.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_023.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_024.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_025.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_026.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_027.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_028.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_029.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_030.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_031.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_032.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+          <li ><a href="images/slide/slide_033.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li ><a href="images/slide/slide_034.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
           <li class="ps_preview">
             <div class="ps_preview_wrapper"> 
               <!-- Thumbnail comes here --> 
@@ -100,19 +174,49 @@
         </ul>
       </div>
       <!--end ps_container-->
-      
+       
        <!--------------- 
       LANDING TEXT 
       ----------------->
+     <!-- lecture vidéo -->
+<a  id="onload" href="trailer.swf" rel="shadowbox;height=480;width=800"></a>
+
+		<p style="color:#C00;font-weight:bold">Nous vous conseillons de réserver très vite votre chambre d'hôtel : un évènement sportif d'ampleur a lieu à Nancy le même week-end. Plus d'infos sur les hôtels <a href="index.html#guide">ici</a></p>
       <p>
-      La cérémonie de remise des diplômes de la promotion 2009 FICM et FIMGP des Mines de Nancy aura lieu le Samedi 22 Septembre 2012 au sein du prestigieux Palais des Congrès de Nancy.
+      La cérémonie de remise des diplômes de la promotion 2009 FICM et FIMGP des Mines de Nancy aura lieu le <strong>Samedi 22 Septembre 2012</strong> au sein du prestigieux Palais des Congrès de Nancy.
+      </p>
+      <p>
+      La cérémonie sera le point d'orgue d'une dernière semaine de la promotion 09 à Nancy, semaine ponctuée par les présentations des stages de fin d'étude et par une multitude d'événements de retrouvailles et d'intéraction avec les autres promotions. Il s'agira de la première semaine de remise des diplômes sur le nouveau campus <strong><span class="signature">ARTEM</span></strong>.
+      </p>
+      <p>
+      Sur ce site vous retrouverez toutes les informations utiles aussi bien aux élèves qu'aux familles.
       </p>
       <p>
       A bientôt pour la remise des diplômes !
       </p>
-      <div class="signature">L'équipe RDD09</div> 
+      <div class="signature"><i>L'équipe RDD09</i></div> 
       
-      
+      <div id="myCanvasContainer" align="center">
+         <canvas width="600" height="300" id="myCanvas">
+          <ul>
+           <li><a>RDD09</a></li>
+           <li><a>180 diplômés</a></li>
+           <li><a>ARTEM</a></li>
+           <li><a>22 Septembre</a></li>
+           <li><a>Last JTM Ever</a></li>
+           <li><a>BPE</a></li>
+           <li><a>Gros Lézard</a></li>
+           <li><a>Poï Poï</a></li>
+           <li><a>Super Fanfare</a></li>
+           <li><a>Joli joli joli</a></li>
+           <li><a>Souvenirs</a></li>
+           <li><a>Retrouvailles</a></li>
+           <li><a>Diplômes</a></li>
+           <li><a>Pipot</a></li>          
+          </ul>
+         </canvas>
+    </div>
+
     </section> <!--end section-->
     
     
@@ -121,7 +225,8 @@
       ----------------->
     <section id="calendrier" class="clearfix">
       <header>
-        <h2>Calendrier (prévisionnel)</h2>
+        <h2>Calendrier</h2>
+        <p style="font-style:italic">Peut être sujet à modifications</p>
       </header>
       
       
@@ -147,6 +252,14 @@
 			<li><h4>13h - 18h</h4>
 			Soutenance FICM
 			</li>
+            <li><h4>En soirée</h4>
+			Retrouvailles avec toutes les promos autour d'une bière <a href="https://maps.google.fr/maps?q=Pub+Le+Mac+Carthy&hl=fr&ll=48.692449,6.17746&spn=0.008598,0.019784&cid=9338709459818810969&gl=FR&t=v&z=16&iwloc=A" target="_blank">au McCarthy <img src="images/map.png"/ height="20"></a>
+			</li>
+            <li>
+            </li>
+			</li>
+			<figure class="calpic"><img src="images/mc_carthy.jpg" alt="Image"  height="250"/></figure>	
+			<li>
 		</ul>	    
 	    </div>
 	    
@@ -162,31 +275,53 @@
 			<li><h4>13h - 18h</h4>
 			Soutenance FICM
 			</li>
+            <li><h4>En soirée</h4>
+			Banquet inter-promotions
+			</li>
+            <li>
+            </li>
+			<figure class="calpic"><img src="images/banquet.jpg" alt="Image" height="250"/></figure>	
 		</ul>	    
 		</div>
 	    <div class="tab-content" id="day3">
 		<ul class="calendar">
-			<li><h4>21h 'til the end of the night</h4>
-			Repas de promo dans un restaurant
+        	<li><h4>12h - 14h</h4>
+            Pique-nique à la Pep'</li>
+			<li><h4>En soirée</h4>
+			Repas de promo <a href="https://maps.google.fr/maps?q=Le+Bellagio&hl=fr&ll=48.690648,6.184126&spn=0.007989,0.019784&cid=14800468541441320193&gl=FR&t=v&z=16&iwloc=A" target="_blank">au Bellagio <img src="images/map.png"/ height="20"></a>
 			</li>
+            <li>
+            </li>
+			</li>
+			<figure class="calpic"><img src="images/bellagio.jpg" alt="Image"  height="250"/></figure>	
+			<li>
 		</ul>
 		</div>
 	    <div class="tab-content" id="day4">
 
 	 	<ul class="calendar">
 			<li><h4>8h - 12h</h4>
-			Soutenances FIMGP
+			Soutenances FIMGP<br>
+            Simulation d'entretiens par Cédric Legrand - Responsable Progrès Continu au Bronze Industriel
+            <br><a href="http://www.lebronzeindustriel.com" target="_blank"><img src="images/lbi.png" height="70"/></a>
 			</li>
-		
+			<li><h4>12h - 14h</h4>
+			Barbecue inter-promotions avec la participation du Bronze Industriel
+            <br>Discussion informelle avec Cédric Legrand
+			</li>		
 			<li><h4>14h - 18h</h4>
-			Activités inter-promos
+			Tournoi de Foot et de Rugby improvisé sur la plaine des sports d'ARTEM (n'oubliez pas vos crampons !)
+            <br>Activités diverses
+            <br> Suite des discussions avec Cédric Legrand
 			</li>
-			<li><h4>19h - 21h</h4>
+			<li><h4>19h - 23h</h4>
 			3ème mi-temps
+			<br>Tournoi Cap's
+            <br>Karaoké			
 			</li>
-			<li><h4>21h - 23h</h4>
-			Tournoi Caps			
-			</li>
+            <li>
+            </li>
+			<figure class="calpic"><img src="images/karaoke.jpg" alt="Image" height="250"/></figure>
 		</ul>	    
 		</div>
 
@@ -206,40 +341,45 @@
 			<li><h4>21h - 23h</h4>
 			The very last JTM			
 			</li>
+            <li>
+            </li>
+			<figure class="calpic"><img src="images/jtm.jpg" alt="Image" height="250"/></figure>
 		</ul>	    
 		</div>
 	    <div class="tab-content" id="day6">
 	 	<ul class="calendar">
+			<li><h4 style="margin-bottom:0px"><a style="color:#575757" href="http://www.mines.inpl-nancy.fr/demenagement/pdf/MinesNancy_PlanAcces.pdf" target="_blank">Accueil à ARTEM</a></h4></li>
+			<li><font color="#FFBB2F" style="font-weight:bold">10h30</font> Accueil par M. Jauzein, Directeur de l'École<br>
+            <font color="#FFBB2F" style="font-weight:bold">10h40</font> Accueil par M. Rossinot, Maire de Nancy<br>
+            <font color="#FFBB2F" style="font-weight:bold">10h50 </font>  Présentation de Mines Nancy Alumni par M. Zettwoog<br>
+            <font color="#FFBB2F" style="font-weight:bold">11h15</font>  Temps des Anciens, visite du campus et verre de l'amitié offert par la Mairie</li>
+			<li><h4 style="margin-bottom:0px">Cérémonie de Remise des Diplômes</h4></li>
+            <li><font color="#FFBB2F" style="font-weight:bold">De 15h à 19h </font><a href="https://maps.google.fr/maps?q=Palais+des+Congres&hl=fr&ll=48.687731,6.180067&spn=0.008598,0.019784&cid=15521831503058633059&gl=FR&t=m&z=16&iwloc=A" target="_blank"	>au Palais des Congrès de Nancy <img src="images/map.png"/ height="20"></a></li>
 
-			<li><h4>10h30</h4>
-			Accueil par le maire à ARTEM
-			</li>
-			<li><h4>11h - 13h</h4>
-			Brunch avec les anciens à ARTEM
-			</li>
-			<li><h4>15h - 19h</h4>
-			Cérémonie de Remise des Diplômes au Palais des Congrès
-			</li>
+			<li><h4>Cockatil dinatoire</h4>
+			<font color="#FFBB2F" style="font-weight:bold">De 20h00 à 22h00 </font><a href="https://maps.google.fr/maps?q=Palais+des+Congres&hl=fr&ll=48.687731,6.180067&spn=0.008598,0.019784&cid=15521831503058633059&gl=FR&t=m&z=16&iwloc=A" target="_blank"	>au Palais des Congrès de Nancy <img src="images/map.png"/ height="20"></a>
+            <font style="font-style:italic">(Sur invitation)</font></li>
 
-			<li><h4>19h30 - 21h30</h4>
-			Buffet
 			</li>
-			<li><h4>21h30 - 22h</h4>
-			Activité pour les parents
+            		
+			<li><h4>22h30 - <img src="images/infini.png" height="10"/></h4>
+			Soirée <a href="https://maps.google.fr/maps?q=48.663444,6.16806&num=1&t=v&z=18" target="_blank">en Sainte-Bé !!<img src="images/map.png"/ height="20"></a>
 			</li>
-		
-			<li><h4>22h30 - Pas d'heure</h4>
-			Soirée !!
-			</li>
+            <li>
+            </li>
+			<figure class="calpic"><img src="images/champagne.jpg" alt="Image" height="250"/></figure>
 		</ul>	    
 	    </div> 
     	    <div class="tab-content" id="day7">
 
 	 	<ul class="calendar">
 
-			<li><h4>pas d'heure</h4>
-			Soirée (suite)
+			<li><h4>Pas d'heure</h4>
+			Soirée (suite et fin ?)
 			</li>
+             <li>
+            </li>
+			<figure class="calpic"><img src="images/croissant.jpg" alt="Image" height="250"/></figure>
 
 		</ul>
 		</div>
@@ -271,28 +411,167 @@
         <h2>Guide de Nancy</h2>
       </header> 
       
-      <p>À venir !
-      </p>
-      
-    </section> <!--end section-->
-    
-    
-     
-    <!-------------- 
-      SECTION : PARRAIN 
-      -------------->
-    <section id="sponsor" class="clearfix">
-      <header>
-        <h2>Parrain de Promotion</h2>
-      </header>
-      
-      <p>À venir !
-      </p>
-      
+      <div id="tabs-wrapper">
+	    <ul class="tabs">
+		<li class="active"><a href="#introducttion">Introduction</a></li>
+		<li><a href="#hotel">Hôtels</a></li>
+		<li><a href="#rendre">S'y rendre</a></li>
+		<li><a href="#deplacer">S'y déplacer</a></li>
+		<li><a href="#curiosites">Curiosités</a></li>
+	    </ul>
+	 
+	    <div class="tabs-wrapper" id="introducttion">
+            <ul class="tabs-guide" style="list-style-type:none">
+                <li><img src="images/nancymairie_coupe_petit.jpg"/></li>
+                <br><br>
+                <li>Vous venez &agrave; Nancy pour la premi&egrave;re fois ? Vous vous demandez o&ugrave; vous allez dormir ? Pas de panique, on a pens&eacute; &agrave; vous...</li>
+            </ul>
+     	</div>
+        
+	    <div class="tabs-wrapper" id="hotel">
+            <ul class="calendar" style="list-style-type:none">
+            	<li style="color:#C00;font-weight:bold">Nous vous conseillons de réserver très vite votre chambre d'hôtel : un évènement sportif d'ampleur a lieu à Nancy le même week-end.</li>
+                <li style="margin-bottom:0"><h4>Hotel de Guise</h4></li>
+                <li>L'hotel nous accorde <strong>une remise de 15% sur les chambres</strong>. Il est situé au <a href="https://maps.google.fr/maps?q=Logis+H%C3%B4tel+de+Guise&hl=fr&ie=UTF8&ll=48.700053,6.180003&spn=0.008596,0.019784&cid=7055411876932731901&gl=FR&t=m&z=16&iwloc=A" target="_blank">18 rue de Guise <img src="images/map.png"/ height="20"></a> en centre ville.</li><br>
+                <li>Pour bénéficier de cette remise signalez bien au moment de votre réservation que vous venez pour la Remise des Diplômes de l'Ecole des Mines. La réduction est valable le vendredi et le samedi.</li><br>
+                <li style="text-align:center"><a href="http://www.hoteldeguise.com/fr/index.php" target="_blank"><img src="images/hotel_guise.jpg" height="100"/></a></li>
+                 <li style="margin-bottom:0"><h4>Autres hôtels</h4></li>
+                 <li><a href="http://www.ot-nancy.fr/se_loger/hotels.php" target="_blank">Consultez ici la liste des hôtels de Nancy</a>
+            </ul>
+     	</div>
+        
+		<div class="tabs-wrapper" id="rendre">
+            <ul class="transport" >
+                	<li><h4 style="margin-bottom:0">En train</h4></li>
+                    <p><li>Gare de Nancy (&Agrave; ne pas confondre avec la gare de Lorraine TGV qui est &agrave; 40 km de Nancy)</li>
+                    <p><li style="text-align:center">3, Place Thiers 54000 Nancy<br/>
+                    T&eacute;l.: 08 36 35 35 35 (tous les jours de 7h &agrave; 22h)<br/>
+                    Horaires d'ouverture : 5h30 &agrave; 22h30</li></p>
+                    <li>La gare est en centre-ville, &agrave; 5 minutes &agrave; pied de la Place Stanislas et du Palais des Congr&egrave;s.</li></p>
+
+                    <p><li>Temps et tarifs des parcours pour les grandes lignes (TGV)
+                        <p><li style="text-align:center">Paris - Nancy: 1h30 (55&euro; environ)</br>
+                        Strasbourg - Nancy: 1h30 (25&euro; environ)</br>
+                        Dijon - Nancy: 2h30 (35&euro; environ)</li></p>
+                        Informations sur les horaires et les tarifs sur Internet : <a href="http://www.voyages-sncf.com/" target="_blank">http://www.voyages-sncf.com/</a></li></p>
+            		<li><h4>En voiture</h4></li>
+                    <p><li>Acc&egrave;s autoroutier :</li></p>
+                    <ul style="list-style-type:disc">
+                        <li>par les autoroutes A4 en provenance de Strasbourg ou Paris - 4h et 50&euro; environ.</li>
+                        <li>par l'autoroute A31 en provenance de Bruxelles, Luxembourg et Dijon. Acc&egrave;s par la RN4 depuis Paris - 4h et 28&euro; environ.
+                        </li></ul><br>
+
+                <li><h4>En avion</h4></li>
+                    <p><li>A&eacute;roport r&eacute;gional Metz-Nancy Lorraine :</li>
+
+                    <p><ul><li style="text-align:center">Route de Vigny<br/>
+                    57420 GOIN<br/>
+                    T&eacute;l : 03 87 56 70 00 - Fax : 03 87 56 70 54</li></ul></p>
+                    
+                    L'a&eacute;roport est &agrave; 45 km au Nord de Nancy.<br/>
+                    Acc&egrave;s par l'autoroute A31.<br/>
+                    De nombreuses navettes assurent la liaison avec Nancy - 16&euro; aller-retour.<br/>
+
+                    <li>Renseignements et horaires sur Internet&nbsp;: <a href="http://www.metz-nancy-lorraine.aeroport.fr/" target="_blank">http://www.metz-nancy-lorraine.aeroport.fr/</a></li>
+            </ul>
+     	</div>
+        
+        <div class="tabs-wrapper" id="deplacer">
+            <ul class="transport">
+				<li><h4>Les transports en commun</h4></li>
+  						<p><li>Une ligne de tramway</br>
+						Une trentaine de ligne de bus</br>
+						30 stations V&eacute;lOstan<li></p>
+						<p><li>Un ticket 1 voyage d'une heure sur le r&eacute;seau Stan : 1,30&euro;</li></p>
+
+						<p><li>Retrouvez toutes les informations sur Internet :
+						<a href="http://www.reseau-stan.com" target="_blank">http://www.reseau-stan.com</a></li></p>
+
+					<li><h4>En taxi</h4></li>
+						<p><li>Taxis de l'Agglom&eacute;ration Nanc&eacute;ienne<br/>
+					T&eacute;l. : 03 83 37 65 37<li></p>
+
+						<li><h4>Location de voitures</h4></li>
+						<p><li>Ada - T&eacute;l.&nbsp;: 03 83 36 53 09<br/>
+						Avis - T&eacute;l.&nbsp;: 0 820 61 17 03<br/>
+						Hertz - T&eacute;l.&nbsp;: 03 83 32 13 14<br/>
+						Rent A Car - T&eacute;l.&nbsp;: 03 83 34 10 10<br/>
+						Europcar - T&eacute;l.&nbsp;: 03 83 37 57 24<br/>
+						Ucar - T&eacute;l.&nbsp;: 03 83 40 21 01</li></p>
+
+					<li><h4>Pour tout renseignement compl&eacute;mentaire</h4></li>
+						<p><li>Office de Tourisme de Nancy<br/>
+					Place Stanislas - BP 810 - 54011 Nancy Cedex<br/>
+					T&eacute;l.&nbsp;: 03 83 35 22 41<br/>
+					<a href="http://www.ot-nancy.fr/" target="_blank">http://www.ot-nancy.fr/</a></li></p>
+            </ul>
+        </div>
+          
+   		<div class="tabs-wrapper" id="curiosites">
+            <ul class="tabs-guide" style="list-style-type:none">
+            	<h3>Visiter Nancy : Sur les traces du Duc Stanislas</h3>
+				<table border=0 style="background-color:white;padding:0;margin:0;"><tr>
+					<td style="background-color:white;"><p><a href="http://www.zevisit.com/guides?q=nancy#top" target="_blank"><img src="visite/ZeVisit_petit.jpg" style="border:0;"/></a></p>
+					<object type="application/x-shockwave-flash" data="player_mp3_multi.swf" width="200" height="150" backgroundColor="black">
+     <param name="movie" value="player_mp3_multi.swf" />
+     <param name="FlashVars" value="mp3=visite/00_Place_Stanislas.mp3|visite/01_Place_d-Alliance.mp3|visite/02_Place_de_la_Carriere.mp3|visite/03_Palais_Ducal_-_Eglise_des_Cordeliers.mp3|visite/04_Porte_de_la_Craffe.mp3|visite/05_Place_St_Epure.mp3&amp;title=Place Stanislas|Place d'Alliance|Place de la Carri&egrave;re|Palais Ducal - &Eacute;glise des Cordeliers|Porte de la Craffe|Place St Epvre&amp;height=150" />
+</object><</td>
+					<td style="background-color:white;">
+<img src="visite/Nancy_-_sur_les_traces_du_Duc_Stanislas_coupe_coupe_coupe_petit.jpg" style="valign:top;"/></td>
+				</tr></table>
+<br/>
+            </ul>
+        </div>
+		</div>
 	    
     </section> <!--end section-->
     
-    
+      <!--------------- 
+      SECTION : Sponso 
+      ----------------->
+    <section id="sponsor" class="clearfix">
+     <header>
+        <h2>Parrains de promo</h2>
+      </header> 
+      
+      <div id="tabs-wrapper">
+	    <ul class="tabs">
+		<li class="active"><a href="#ficm">FICM - P. Guillemot</a></li>
+		<li><a href="#fimgp">FIMGP - Y. Bailly</a></li>
+		</ul>
+        
+        <div class="tab-content" id="ficm">
+        <h3>Philippe Guillemot</h3>
+        <h6>Poste<br>
+        Promotion Nancy 1979</h6>
+        
+        <h5>Parcours</h5>
+        <ul style="list-style-type:none;text-align:justify">
+            <li>Philippe Guillemot entre à l’école des Mines de Nancy en 1979. Diplômé en 1983, il débute sa carrière chez Michelin où il occupera différentes fonctions de Direction liées à la Qualité et à la Production, au Canada, en France puis en Italie.</li><br>
+            <li>En 1981, après avoir obtenu un MBA à Boston, il devient consultant pour le secteur automobile dans le cabinet Booz-Allen & Hamilton, à Paris.</li><br>
+            <li>En 1983, il réintègre le groupe Michelin comme Responsable Industriel et devient, trois ans plus tard, membre du Conseil Exécutif en tant que Vice-président Exécutif du groupe Qualité. </li><br>
+            <li>Sa carrière managériale ne s'arrête pas là puisqu'il rejoint le groupe Valeo en 1998 en qualité de Vice-président de l’activité refroidissement moteur.</li><br>
+            <li>Puis il intègre en 2001 Faurecia, filiale du groupe Peugeot-Citroën (PSA), et y occupe la fonction de Vice-président exécutif de l’activité sièges automobiles.</li><br>
+            <li>En 2004, il est nommé Président-Directeur Général d’Areva T&D (Transmission et Distribution de l’électricité).</li><br>
+            <li>En 2010, il retrouve l’automobile et prend la tête du groupe loueur de véhicules Europcar, fonction qu'il occupera jusqu'en février 2012.</li><br>
+        </div>
+        
+        <div class="tab-content" id="fimgp">
+        <h3>Yves Bailly</h3>
+        <h6>Président-directeur Général de Norske Skob Golbey SAS (NSG)<br>
+        Promotion Alès 1992  </h6>
+        <h5>Parcours</h5>
+        <ul style="list-style-type:none;text-align:justify">        
+        <li>Yves BAILLY (1961) est actuellement le Président-directeur Général de la Société Norske Skob Golbey SAS (NSG), filiale du groupe norvégien Norske Skogindustrier (NSI). NSG, dont le siège social se trouve à Epinal dans les Vosges, fabrique du papier journal à partir de bois et de papiers récupérés.</li><br>
+        
+        <li>Titulaire d’un diplôme d’ingénieur (Ecole des Mines) et d’un MBA (HEC Paris), il a rejoint la société Norske Skog Golbey en 1992 et y a occupé plusieurs fonctions, entre autres Directeur de production et Directeur Général Adjoint. En 2005, il est nommé Vice Président et Directeur Technique de Pan Asia à Séoul et depuis 2006, il dirige la société Norske Skog Golbe.</li><br>
+        
+        <li>Yves Bailly est également Directeur Général de Norske Skogindustrier Branch (NSIB, succursale en France du Groupe NSI), Président du Conseil d’Administration de PARENCO (Unité de production papiers, Hollande) ainsi que membre du Conseil d’Administration des sociétés PAVATEX et SAPIN (Société d’approvisionnement en bois). Il représente également la profession au sein de nombreuses organisations papetières et est Président du syndicat PAPEST, qui regroupe 24 entreprises adhérentes.</li>
+        </ul>
+        </div>
+      
+      </section>
+      
       <!-----------
       SECTION : PROMO 
       ----------->
@@ -300,297 +579,444 @@
       <header>
         <h2>Promotion 09</h2>
       </header>
-      
+
       <div id="tabs-wrapper">
 	    <ul class="tabs tabs-promo">
-		<li class="active"><a href="#dep1" class="tooltip">Information et systèmes<span class="classic">Département INFORMATION ET SYSTEMES 
-</br>
-Parcours Architecture des systèmes sûrs
-</br> 
-Ce parcours aborde le traitement d’information comme faisant partie d’un système large et complexe et dont les interactions avec le monde réel sont multiples et critiques. La sûreté et la sécurité y trouvent donc une place prépondérante, au même titre que les aspects de modélisation des échanges et des interactions, la communication et la mobilité/ubiquité. Il place l’information dans un contexte d’intégration technologique et logicielle.  
-</br>
-Parcours Organisation de l’information et des processus 
-</br>
-Ce second parcours s’intéresse plus au concept même d’information, de sa représentation, de son évolution, et de la façon dont, en étant intégré dans des processus métiers de l’entreprise, elle évolue, s’enrichit et produit de la valeur ajoutée. La question n’est plus d’aborder l’intégration technologique informatique, mais de déterminer quelle organisation et quelle représentation de l’information répondra au mieux aux besoins de son utilisation.</span></a></li>
-		<li><a href="#dep2" class="tooltip">Géoingénierie<span class="classic">Département GEOINGENIERIE  
-</br>
-Dans une approche volontairement très généraliste, et donc suivant un parcours unique, le département propose un enseignement très varié préparant l’étudiant à différents métiers touchant au génie civil, minier et pétrolier, ainsi qu’à la gestion des risques et à l’environnement. Cet enseignement vise d’abord à développer la capacité à observer et à représenter des objets complexes (cartographie géologique, géophysique) et la capacité à modéliser ces objets (géotechnique, géostatistique, hydrologie). Le département propose également des approfondissements dans différents domaines : génie civil s.l. (tunnels, ouvrages…), gestion des risques naturels, exploitation et valorisation du sous-sol (hydrocarbures, mines, géothermie), notamment.</span></a></li>
-<li><a href="#dep3" class="tooltip">Génie Industriel et Mathématiques Appliquées<span class="classic">Département GENIE INDUSTRIEL & MATHEMATIQUES APPLIQUEES  
-<br/>
-
-
-Parcours Ingénierie des systèmes de décision et de production 
-</br>
-
-
-Ce parcours vise à faire acquérir des compétences en gestion scientifique de la production au sens large (industrie manufacturière, grande distribution, transport, banque…) et en ingénierie de l’aide à la décision. Les ingénieurs formés sont recrutés dans l’industrie, le commerce et les services.  
-</br>
-
-
-Parcours Ingénierie mathématique
-</br>
-
-
-Ce parcours forme des ingénieurs mathématiciens aptes à traiter des problèmes concrets, à contribuer à leur modélisation et à choisir les méthodes numériques les plus puissantes pour les traiter. Elle propose deux spécialisations, l’une vers les mathématiques financières qui requièrent des aptitudes à la modélisation stochastique et l’autre vers le calcul scientifique.</span></a></li>
-
-		<li><a href="#dep4" class="tooltip">Énergie, Production, Transformation<span class="classic"> Département ENERGIE : PRODUCTION, TRANSFORMATION 
-</br>
-
-
-Ce parcours a pour objectif d’assurer aux élèves-ingénieurs une formation solide dans les enseignements fondamentaux de l’énergie : mécanique des fluides, thermique et thermodynamique. On y traite également de l’état de l’art des technologies dans le domaine de l’énergie. La formation est complétée par une ouverture sur l’approche globale de la situation énergétique incluant la présentation des différents vecteurs et sources d’énergie, des énergies renouvelables ainsi que du trading et de la gestion de l’énergie."</span></a></li>
-
-		<li><a href="#dep5" class="tooltip">Sciences et Ingénierie des Matériaux <span class="classic">Département MATERIAUX 
-</br>
-
-
-Parmi les trois grandes classes de matériaux que sont, les métaux et alliages, les polymères et les céramiques, on regroupe traditionnellement les matériaux dits de structure sélectionnés pour leurs caractéristiques mécaniques et leur tenue en service, et les matériaux dits fonctionnels qui assurent des fonctions autres que mécaniques. Après un tronc commun où sont abordés les deux groupes de matériaux de façon équilibrée, il est proposé deux parcours différenciés partiellement décloisonnés.
-</span></a></li>
-
-
-		<li><a href="#dep6" class="tooltip">Procédés, Energie, Environement<span class="classic">Département PROCEDES, ENERGIE, ENVIRONNEMENT 
-</br>
-
-
-Parcours Ingénierie énergétique et environnementale des systèmes industriels Ce parcours a pour objectif d’apporter les bases de la modélisation des procédés industriels dans lesquels les aspects énergétiques jouent un rôle capital. Il s’agit de répondre au besoin de production de produits nouveaux avec un maximum de sécurité et en minimisant les impacts sur l’environnement et les besoins énergétiques.</span></a></li>
-
-		<li><a href="#dep7" class="tooltip">Spécialité Matériaux et Gestion de Production<span class="classic">Spécialité  MATERIAUX ET GESTION DE PRODUCTION
-</br>
-Manque d’ingénieurs de terrain d’un côté. Souhait 
-de nombreux diplômés de BTS ou de DUT d’évoluer 
-vers des carrières d’ingénieur de l’autre... La spécia
--
-lité Matériaux et Gestion de Production répond à ce 
-paradoxe en s’appuyant sur une vraie proximité avec 
-les industriels. Un partenariat qui se traduit pour les 
-élèves ingénieurs par dix-huit mois de formation en 
-entreprise, synonyme d’autant d’expériences profes
--
-sionnelles.
-Localisée à Nancy, cette formation pluridisciplinaire 
-prépare les futurs ingénieurs à prendre des responsa
--
-bilités au sein d’unités de production de tous secteurs 
-d’activités.</span></a></li>
-
+		<li class="active"><a href="#dep1">Information et systèmes</a></li>
+		<li><a href="#dep2">Géoingénierie</a></li>
+		<li><a href="#dep3">Génie Industriel et Mathématiques Appliquées</a></li>
+		<li><a href="#dep4">Énergie, Production, Transformation</a></li>
+		<li><a href="#dep5">Sciences et Ingénierie des Matériaux</a></li>
+		<li><a href="#dep6">Procédés, Energie, Environement</a></li>
+        <li><a href="#dep7">Spécialité Matériaux et Gestion de Production</a></li>
 	    </ul>
-	 
+<br><br><br><br><br><br>
 	    <div class="tab-content" id="dep1">
-	 	<ul class="tabs-list">
-		 	<li>ANDURAND Paulin</li>
-			<li>BOUCHEZ Rémi</li>
-			<li>BRENON Grégoire</li>
-			<li>BRUNEL Thomas</li>
-			<li>CAO Xun</li>
-			<li>CHAN NOON CHUNG Mathieu</li>
-			<li>COURMONT François</li>
-			<li>DHIBA Nabil</li>
-			<li>DROT Nicolas</li>
-			<li>COURMONT François</li>
-			<li>DUREY Vivien</li>
-			<li>MOKRANI Hichem</li>
-			<li>HOELTER Jeremie</li>
-			<li>HUNEAU Pierre</li>
-			<li>JOST Rémi</li>
-			<li>LE LIGNE Thomas</li>
-			<li>PLACHOT Mathieu</li>
-			<li>SUN Long</li>
-			<li>THOMAS Maël</li>
-			<li>TISSOT Baptiste</li>
-			<li>ZHAO Yuan</li>
-		</ul>
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département INFORMATION ET SYSTEMES</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Paulin ANDURAND</li>
+                    <li>Rémi BOUCHEZ</li>
+                    <li>Grégoire BRENON</li>
+                    <li>Thomas BRUNEL</li>
+                    <li>Xun CAO</li>
+                    <li>Mathieu NOON CHUNG CHAN</li>
+                    <li>François COURMONT</li>
+                    <li>Nabil DHIBA</li>
+                    <li>Nicolas DROT</li>
+                    <li>François COURMONT</li>
+                    <li>Vivien DUREY</li>
+                    <li>Hichem MOKRANI</li>
+                    <li>Jeremie HOELTER</li>
+                    <li>Pierre HUNEAU</li>
+                    <li>Rémi JOST</li>
+                    <li>Thomas LE LIGNE</li>
+                    <li>Mathieu PLACHOT</li>
+                    <li>Long SUN</li>
+                    <li>Maël THOMAS</li>
+                    <li>Baptiste TISSOT</li>
+                    <li>Yuan ZHAO</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+                
+                <h5>Parcours Architecture des systèmes sûrs</h5>
+                Ce parcours aborde le traitement d’information comme faisant partie d’un système large et complexe et dont les interactions avec le monde réel sont multiples et critiques. La sûreté et la sécurité y trouvent donc une place prépondérante, au même titre que les aspects de modélisation des échanges et des interactions, la communication et la mobilité/ubiquité. Il place l’information dans un contexte d’intégration technologique et logicielle. 
+ 				<br><br>
+                <h5>Parcours Organisation de l’information et des processus</h5>
+                Ce second parcours s’intéresse plus au concept même d’information, de sa représentation, de son évolution, et de la façon dont, en étant intégré dans des processus métiers de l’entreprise, elle évolue, s’enrichit et produit de la valeur ajoutée. La question n’est plus d’aborder l’intégration technologique informatique, mais de déterminer quelle organisation et quelle représentation de l’information répondra au mieux aux besoins de son utilisation.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+        
 	    </div>
-	    
-	    <div class="tab-content" id="dep2">
-    		<ul class=tabs-list>
-    			<li>ABSALON Paul</li>
-			<li>BAILLIARD Anne</li>
-			<li>BAJOLOT Vincent</li>
-			<li>BARBIER Baptiste</li>
-			<li>BOILEAU Nicolas</li>
-			<li>EL-KHOURY Jean-Claude</li>
-			<li>HAMDOUCH Mohamed</li>
-			<li>LE REUN Juliette</li>
-			<li>LIMAMI Taoufik</li>
-			<li>MAQUIN Mathilde</li>
-			<li>MARCEL Elodie</li>
-			<li>MILLOT Gautier</li>
-			<li>MONDESERT Grégoire</li>
-			<li>MONTOUCHET Michaël</li>
-			<li>NICOLAS Aurélien</li>
-			<li>PELLETIER Anne</li>
-			<li>PHILIPPE Aurélien</li>
-			<li>SOONEKINDT Guillaume</li>
-			<li>STUDER Florian</li>
-			<li>TORRI ELie</li>
-    		</ul>
-	    
+                
+		<div class="tab-content" id="dep2">
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département GEOINGENIERIE</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Paul ABSALON</li>
+                    <li>Anne BAILLIARD</li>
+                    <li>Vincent BAJOLOT</li>
+                    <li>Baptiste BARBIER</li>
+                    <li>Nicolas BOILEAU</li>
+                    <li>Jean-Claude EL-KHOURY</li>
+                    <li>Mohamed HAMDOUCH</li>
+                    <li>Juliette LE REUN</li>
+                    <li>Taoufik LIMAMI</li>
+                    <li>Mathilde MAQUIN</li>
+                    <li>Elodie MARCEL</li>
+                    <li>Gautier MILLOT</li>
+                    <li>Grégoire MONDESERT</li>
+                    <li>Michaël MONTOUCHET</li>
+                    <li>Aurélien NICOLAS</li>
+                    <li>Anne PELLETIER</li>
+                    <li>Aurélien PHILIPPE</li>
+                    <li>Guillaume SOONEKINDT</li>
+                    <li>Florian STUDER</li>
+                    <li>Elie TORRI</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+               Dans une approche volontairement très généraliste, et donc suivant un parcours unique, le département propose un enseignement très varié préparant l’étudiant à différents métiers touchant au génie civil, minier et pétrolier, ainsi qu’à la gestion des risques et à l’environnement. Cet enseignement vise d’abord à développer la capacité à observer et à représenter des objets complexes (cartographie géologique, géophysique) et la capacité à modéliser ces objets (géotechnique, géostatistique, hydrologie). Le département propose également des approfondissements dans différents domaines : génie civil s.l. (tunnels, ouvrages…), gestion des risques naturels, exploitation et valorisation du sous-sol (hydrocarbures, mines, géothermie), notamment.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
 	    </div>
+
 	    <div class="tab-content" id="dep3">
-	    	<ul class="tabs-list">
-			<li>BENJELLOUN Zakaria</li>
-			<li>BOUKHEROUAA Souhail</li>
-			<li>BOURQUARD Léa</li>
-			<li>BOUSSAHOUA Taïeb-Mounir</li>
-			<li>FIANI Marc</li>
-			<li>GAO Lei</li>
-			<li>IBN AL KADI Mohamed</li>
-			<li>LAABIDI Olfa</li>
-			<li>MAROUEN Ahmed</li>
-			<li>PIGNARD Antoine</li>
-			<li>RUBINSTEIN Jean-François</li>
-			<li>TELEMAQUE Guillaume</li>
-			<li>WU Chi-Ting</li>
-			<li>XU Xin</li>
-			<li>ZHOU Jie</li>
-			<br/>
-			<li>BEAUCOURT Maxime</li>
-			<li>BEAUFILS François</li>
-			<li>BELLOT Marie</li>
-			<li>BESSIERE Jean-Emmanuel</li>
-			<li>BUHLER Mélodie</li>
-			<li>CLOUARD Jean-Baptiste</li>
-			<li>DALL'AGLIO Laurent</li>
-			<li>DELORT Julien</li>
-			<li>ERBACHER Benoît</li>
-			<li>GAPIN Alex</li>
-			<li>HERAULT Vanessa</li>
-			<li>KHEDHIRI Ines</li>
-			<li>LANNES Jean-Brice</li>
-			<li>LERIVREY Paul</li>
-			<li>LESTREHAN Quentin</li>
-			<li>POLETTI Daphné</li>
-			<li>ROSTAND Louis</li>
-			<li>SASSI Ons</li>
-			<li>SALADIN Maud</li>
-			<li>SPENLE Alexis</li>
-			<li>TOURE Jaoujata</li>
-			<li>TOURKI Yousra</li>
-			<li>ZIMMER Arnaud</li>
-		</ul>
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département GENIE INDUSTRIEL & MATHEMATIQUES APPLIQUEES</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Zakaria BENJELLOUN</li>
+                    <li>Souhail BOUKHEROUAA</li>
+                    <li>Léa BOURQUARD</li>
+                    <li>Taïeb-Mounir BOUSSAHOUA</li>
+                    <li>Marc FIANI</li>
+                    <li>Lei GAO</li>
+                    <li>Mohamed IBN AL KADI</li>
+                    <li>Olfa LAABIDI</li>
+                    <li>Ahmed MAROUEN</li>
+                    <li>Antoine PIGNARD</li>
+                    <li>Jean-François RUBINSTEIN</li>
+                    <li>Guillaume TELEMAQUE</li>
+                    <li>Chi-Ting WU</li>
+                    <li>Xin XU</li>
+                    <li>Jie ZHOU</li>
+                    <li><br></li>
+				</ul>
+			</td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+                <h5>Parcours Ingénierie mathématique</h5>
+                Ce parcours forme des ingénieurs mathématiciens aptes à traiter des problèmes concrets, à contribuer à leur modélisation et à choisir les méthodes numériques les plus puissantes pour les traiter. Elle propose deux spécialisations, l’une vers les mathématiques financières qui requièrent des aptitudes à la modélisation stochastique et l’autre vers le calcul scientifique.
+                </li>
+                </ul>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Maxime BEAUCOURT</li>
+                    <li>François BEAUFILS</li>
+                    <li>Marie BELLOT</li>
+                    <li>Jean-Emmanuel BESSIERE</li>
+                    <li>Mélodie BUHLER</li>
+                    <li>Jean-Baptiste CLOUARD</li>
+                    <li>Laurent DALL'AGLIO</li>
+                    <li>Julien DELORT</li>
+                    <li>Benoît ERBACHER</li>
+                    <li>Alex GAPIN</li>
+                    <li>Vanessa HERAULT</li>
+                    <li>Ines KHEDHIRI</li>
+                    <li>Jean-Brice LANNES</li>
+                    <li>Paul LERIVREY</li>
+                    <li>Quentin LESTREHAN</li>
+                    <li>Daphné POLETTI</li>
+                    <li>Louis ROSTAND</li>
+                    <li>Ons SASSI</li>
+                    <li>Maud SALADIN</li>
+                    <li>Alexis SPENLE</li>
+                    <li>Jaoujata TOURE</li>
+                    <li>Yousra TOURKI</li>
+                    <li>Arnaud ZIMMER</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+                
+                <h5>Parcours Ingénierie des systèmes de décision et de production </h5>
+                Ce parcours vise à faire acquérir des compétences en gestion scientifique de la production au sens large (industrie manufacturière, grande distribution, transport, banque…) et en ingénierie de l’aide à la décision. Les ingénieurs formés sont recrutés dans l’industrie, le commerce et les services.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
 	    </div>
+
 	    <div class="tab-content" id="dep4">
-	    	<ul class="tabs-list">
-	    		<li>ADATTE Tristan</li>
-			<li>BELUCHE Jean-Michel</li>
-			<li>DECROUX Benoît</li>
-			<li>GANTHY Vincent</li>
-			<li>GOURLAOUEN Guillaume</li>
-			<li>GRATPAIN Vital</li>
-			<li>HARCHAMBOIS Stéphanie</li>
-			<li>JESTIN Rémy</li>
-			<li>KHOU Jean-Charles</li>
-			<li>MARLIEN Clément</li>
-			<li>OZOGUL Hamdullah</li>
-			<li>PICAUD Manuel</li>
-			<li>ROOSES Lossi</li>
-			<li>SCHMITT Lucas</li>
-			<li>SEBILLEAU Frédéric</li>
-			<li>VENTALON Séverine</li>
-			<li>WOODWARD Henry</li>
-			<li>WU Jing</li>
-	    	</ul>
-	    
-	    </div>
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département ENERGIE : PRODUCTION, TRANSFORMATIONS</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Tristan ADATTE</li>
+                    <li>Jean-Michel BELUCHE</li>
+                    <li>Benoît DECROUX</li>
+                    <li>Vincent GANTHY</li>
+                    <li>Guillaume GOURLAOUEN</li>
+                    <li>Vital GRATPAIN</li>
+                    <li>Stéphanie HARCHAMBOIS</li>
+                    <li>Rémy JESTIN</li>
+                    <li>Jean-Charles KHOU</li>
+                    <li>Clément MARLIEN</li>
+                    <li>Hamdullah OZOGUL</li>
+                    <li>Manuel PICAUD</li>
+                    <li>Lossi ROOSES</li>
+                    <li>Lucas SCHMITT</li>
+                    <li>Frédéric SEBILLEAU</li>
+                    <li>Séverine VENTALON</li>
+                    <li>Henry WOODWARD</li>
+                    <li>Jing WU</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+                Ce parcours a pour objectif d’assurer aux élèves-ingénieurs une formation solide dans les enseignements fondamentaux de l’énergie : mécanique des fluides, thermique et thermodynamique. On y traite également de l’état de l’art des technologies dans le domaine de l’énergie. La formation est complétée par une ouverture sur l’approche globale de la situation énergétique incluant la présentation des différents vecteurs et sources d’énergie, des énergies renouvelables ainsi que du trading et de la gestion de l’énergie.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
+	    </div>                
+        
 	    <div class="tab-content" id="dep5">
-    		<ul class=tabs-list>
-    			<li>ABDESSELEM Mouna</li>
-			<li>BALFOURIER Thomas</li>
-			<li>BANACH Grégory</li>
-			<li>BARJOLLE Antoine</li>
-			<li>BATIER Camille</li>
-			<li>BONNEAU Léandre</li>
-			<li>BRIX Florian</li>
-			<li>CARBONEL Jacob</li>
-			<li>CHEN Fengjuan</li>
-			<li>DORIDOT Emiliane</li>
-			<li>FRIJLINK Barbara</li>
-			<li>GARAGNANI Stéphane</li>
-			<li>HACKENBERGER Guillaume</li>
-			<li>JING Fangchang</li>
-			<li>KUTEIFAN Majd</li>
-			<li>LEBRUN Romain</li>
-			<li>LIU Guangjia</li>
-			<li>MARTINEZ Vincent</li>
-			<li>MASUREL François</li>
-			<li>MAZOUZ Amine</li>
-			<li>PEPIN Charles</li>
-			<li>PERRET DU CRAY Margaux</li>
-			<li>PUEL Jean-Baptiste</li>
-			<li>RICHY Jérôme</li>
-			<li>SAIED Mahmoud</li>
-			<li>SANCHEZ Loïc</li>
-			<li>TRUONG Nhu Phuoc</li>
-			<li>ZHUANG Yiming</li>
-    		</ul>
-	    </div>	    	    
-	    <div class="tab-content" id="dep6">
-    		<ul class=tabs-list>
-    			<li>BARSAGOL Guillaume</li>
-			<li>BENKHAIRA Youssef</li>
-			<li>BRIAND Pauline</li>
-			<li>BUGEAT Benjamin</li>
-			<li>CABANES Astrid</li>
-			<li>CHABRIER Sandrine</li>
-			<li>EL FADILI Safae</li>
-			<li>GOFFE Grégoire </li>
-			<li>GIRARD Nicolas</li>
-			<li>HAURAT Damien</li>
-			<li>HILLION Romain</li>
-			<li>HURAULT David</li>
-			<li>KINKOUAMA Amos Lumière</li>
-			<li>LEROY Jean-Baptiste</li>
-			<li>LU Ziqi</li>
-			<li>PERNOLLET Franck</li>
-			<li>ROULLEAUX DUGAGE Augustin</li>
-			<li>RUTLEDGE David</li>
-			<li>SAHBANI Nasma</li>
-			<li>SCHOEN Jean-Baptiste</li>
-			<li>STADLER Thibaut</li>
-			<li>TCHISSAMBO MOUISSOU Gabriel</li>
-			<li>TREVOUX Marc-Antoine</li>
-			<li>TRUMTEL Minh-Tam</li>
-			<li>YATRIBI Abdelaziz</li>	
-    		</ul>
-	    
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département MATERIAUX</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Mouna ABDESSELEM</li>
+                    <li>Thomas BALFOURIER</li>
+                    <li>Grégory BANACH</li>
+                    <li>Antoine BARJOLLE</li>
+                    <li>Camille BATIER</li>
+                    <li>Léandre BONNEAU</li>
+                    <li>Florian BRIX</li>
+                    <li>Jacob CARBONEL</li>
+                    <li>Fengjuan CHEN</li>
+                    <li>Emiliane DORIDOT</li>
+                    <li>Barbara FRIJLINK</li>
+                    <li>Stéphane GARAGNANI</li>
+                    <li>Guillaume HACKENBERGER</li>
+                    <li>Fangchang JING</li>
+                    <li>Majd KUTEIFAN</li>
+                    <li>Romain LEBRUN</li>
+                    <li>Guangjia LIU</li>
+                    <li>Vincent MARTINEZ</li>
+                    <li>François MASUREL</li>
+                    <li>Amine MAZOUZ</li>
+                    <li>Charles PEPIN</li>
+                    <li>Margaux DU CRAY PERRET</li>
+                    <li>Jean-Baptiste PUEL</li>
+                    <li>Jérôme RICHY</li>
+                    <li>Mahmoud SAIED</li>
+                    <li>Loïc SANCHEZ</li>
+                    <li>Nhu Phuoc TRUONG</li>
+                    <li>Yiming ZHUANG</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+               Parmi les trois grandes classes de matériaux que sont, les métaux et alliages, les polymères et les céramiques, on regroupe traditionnellement les matériaux dits de structure sélectionnés pour leurs caractéristiques mécaniques et leur tenue en service, et les matériaux dits fonctionnels qui assurent des fonctions autres que mécaniques. Après un tronc commun où sont abordés les deux groupes de matériaux de façon équilibrée, il est proposé deux parcours différenciés partiellement décloisonnés.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
 	    </div>
+        
+	    <div class="tab-content" id="dep6">
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Département PROCEDES, ENERGIE, ENVIRONNEMENT</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                    <li>Guillaume BARSAGOL</li>
+                    <li>Youssef BENKHAIRA</li>
+                    <li>Pauline BRIAND</li>
+                    <li>Benjamin BUGEAT</li>
+                    <li>Astrid CABANES</li>
+                    <li>Sandrine CHABRIER</li>
+                    <li>Safae EL FADILI</li>
+                    <li>Grégoire GOFFE</li>
+                    <li>Nicolas GIRARD</li>
+                    <li>Damien HAURAT</li>
+                    <li>Romain HILLION</li>
+                    <li>David HURAULT</li>
+                    <li>Amos Lumière KINKOUAMA</li>
+                    <li>Jean-Baptiste LEROY</li>
+                    <li>Ziqi LU</li>
+                    <li>Franck PERNOLLET</li>
+                    <li>Augustin ROULLEAUX DUGAGE</li>
+                    <li>David RUTLEDGE</li>
+                    <li>Nasma SAHBANI</li>
+                    <li>Jean-Baptiste SCHOEN</li>
+                    <li>Thibaut STADLER</li>
+                    <li>Gabriel TCHISSAMBO MOUISSOU</li>
+                    <li>Marc-Antoine TREVOUX</li>
+                    <li>Minh-Tam TRUMTEL</li>
+                    <li>Abdelaziz YATRIBI</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+               Parcours Ingénierie énergétique et environnementale des systèmes industriels Ce parcours a pour objectif d’apporter les bases de la modélisation des procédés industriels dans lesquels les aspects énergétiques jouent un rôle capital. Il s’agit de répondre au besoin de production de produits nouveaux avec un maximum de sécurité et en minimisant les impacts sur l’environnement et les besoins énergétiques.
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
+	    </div>
+        
 	    <div class="tab-content" id="dep7">
-		<ul class=tabs-list>
-			<li>ALNOT Capucine</li>
-			<li>BARBARAND Thomas</li>
-			<li>BEGIN Vincent</li>
-			<li>BROWAEYS Camille</li>
-			<li>CABALLERO Jacqueline</li>
-			<li>COURTIER Jérémy</li>
-			<li>DAUSSY Jean-Christophe</li>
-			<li>DE VALLEE Pierre-Oscar</li>
-			<li>DIA Ousmane</li>
-			<li>DIA Tidiane</li>
-			<li>GENGATHARAN Shobana</li>
-			<li>GOBIN Maxime</li>
-			<li>HAFFOUD Ahmed</li>
-			<li>HUOT Camille</li>
-			<li>IYITUTUNCU Sibel</li>
-			<li>KASSIR Edouard</li>
-			<li>LAMIET Aymeric</li>
-			<li>LECOMTE Florian</li>
-			<li>MAUGET Jérémy</li>
-			<li>MEERSCHAUT Thomas</li>
-			<li>MELMOUX Doriane</li>
-			<li>ONDOUO Swanie</li>
-			<li>PERRICHON Romain</li>
-			<li>SCHMIDT Mathias</li>
-			<li>SWISTEK Alexandra</li>
-			<li>TARDY Aurélien</li>
-			<li>VOLLET Raphael</li>
-			<li>WADIER Florian</li>
-		</ul>	    
+	    <table>
+            <tr>
+            <td colspan="2" style="text-align:center">
+            <h4 style="padding-top:40px;">Spécialité  MATERIAUX ET GESTION DE PRODUCTION</h4>
+            </td>
+            </tr>
+            <tr>
+            <td width="300" style="vertical-align:middle">
+                <ul class="tabs-list"  style="list-style-type:none;padding-top:0px;">
+                    <li>Capucine ALNOT</li>
+                    <li>Thomas BARBARAND</li>
+                    <li>Vincent BEGIN</li>
+                    <li>Camille BROWAEYS</li>
+                    <li>Jacqueline CABALLERO</li>
+                    <li>Jérémy COURTIER</li>
+                    <li>Jean-Christophe DAUSSY</li>
+                    <li>Pierre-Oscar DE VALLEE</li>
+                    <li>Ousmane DIA</li>
+                    <li>Tidiane DIA</li>
+                    <li>Shobana GENGATHARAN</li>
+                    <li>Maxime GOBIN</li>
+                    <li>Ahmed HAFFOUD</li>
+                    <li>Camille HUOT</li>
+                    <li>Sibel IYITUTUNCU</li>
+                    <li>Edouard KASSIR</li>
+                    <li>Aymeric LAMIET</li>
+                    <li>Florian LECOMTE</li>
+                    <li>Jérémy MAUGET</li>
+                    <li>Thomas MEERSCHAUT</li>
+                    <li>Doriane MELMOUX</li>
+                    <li>Swanie ONDOUO</li>
+                    <li>Romain PERRICHON</li>
+                    <li>Mathias SCHMIDT</li>
+                    <li>Alexandra SWISTEK</li>
+                    <li>Aurélien TARDY</li>
+                    <li>Florent WADIER</li>
+                </ul>
+            </td>
+            <td style="text-align:justify;vertical-align:middle">
+                <ul class="tabs-list" style="list-style-type:none;padding-top:0px;">
+                <li style="text-align:justify">
+                Manque d’ingénieurs de terrain d’un côté. Souhait de nombreux diplômés de BTS ou de DUT d’évoluer vers des carrières d’ingénieur de l’autre... La spécialité Matériaux et Gestion de Production répond à ce paradoxe en s’appuyant sur une vraie proximité avec les industriels. Un partenariat qui se traduit pour les 
+élèves ingénieurs par dix-huit mois de formation en entreprise, synonyme d’autant d’expériences professionnelles.
+<br><br>
+Localisée à Nancy, cette formation pluridisciplinaire prépare les futurs ingénieurs à prendre des responsabilités au sein d’unités de production de tous secteurs 
+d’activités
+                </li>
+                </ul>
+            </td>
+            </tr>
+        </table>
+	
 	    </div>  
-	    
+
       </div>
+      
+      <br>
+      <center><iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps/ms?msid=202947875111709068452.0004bd6c556a80f301c7e&amp;msa=0&amp;ie=UTF8&amp;t=m&amp;ll=47.872144,5.097656&amp;spn=35.458587,52.734375&amp;z=3&amp;output=embed"></iframe><br><h6>Localisation des élèves de la promotion 2009 pendant le semestre 10</h6></center>
       
     </section> <!--end section--> 
     
-   
+	<!--------------- 
+      SECTION : ALUMNI 
+      ----------------->
+    <section id="alumni" class="clearfix">
+     <header>
+        <h2>ALUMNI</h2>
+      </header> 
+      <ul class="alumni" >
+      <li>L’association <a href="http://www.inter-mines.org/?url_assoc=N" target="_blank">Mines Nancy Alumni</a> est l’association des Anciens élèves de l’Ecole des
+Mines de Nancy. Selon l’article 1 des statuts de l’association, celle-ci a pour but de :</li></ul>
+<ul style="text-align:justify;padding:20px">
+<li>Maintenir et resserrer les liens d’amitié et de camaraderie qui se sont créés à l’école</li>
+<li>Prendre en mains les intérêts généraux des anciens élèves et des élèves, ainsi que de venir en aide aux uns et aux
+autres sur le plan professionnel comme sur le plan personnel</li>
+<li>Mettre à la disposition de ses membres toute documentation qui lui paraîtra utile et remplir, de ce fait, une mission
+d’information</li>
+<li>Se tenir en contact étroit avec l’Ecole, suivre l’évolution de sa doctrine et faire connaître à la Direction de l’Ecole ainsi
+qu’aux élèves les opinions et les desiderata de ses membres et éventuellement soutenir financièrement son action
+pédagogique</li></ul>
+<ul class="alumni">
+<li>Le siège de l'association se trouve à Paris.</li>
+</ul>
+<table>
+<tr>
+<td>
+<ul class="alumni">
+<li>Grâce aux cotisations des anciens élèves, l’association finance entre autres une partie de la vie étudiante à l’école. Le
+montant de la cotisation est fixé chaque année par l’association. Cotiser permet d’intégrer l’association, d’avoir accès au
+réseau des Anciens élèves, d’être informé des différentes activités organisées et des publications.</li>
+<li><strong>L’association Mines Nancy Alumni est un des partenaires principaux de la Remise des Diplômes</strong>. Lors du samedi 22
+septembre, un brunch est organisé par l’association. Cet événement sera une occasion pour échanger entre promotions</li></ul></td>
+<td style="vertical-align:middle"><a href="http://www.inter-mines.org/?url_assoc=N" target="_blank"><img src="images/alumni.png" width="200" /></a></td></tr></table>
+      
+    </section> <!--end section-->
+    
+    <!--------------- 
+      SECTION : ARTEM 
+      ----------------->
+    <section id="artem" class="clearfix">
+     <header>
+        <h2>ARTEM</h2>
+      </header> 
+      
+      <p><a href="http://www.mines.inpl-nancy.fr/demenagement/index.html">Lien vers la FAQ</a>
+      </p>
+      
+    </section> <!--end section-->
+    
     
     <!--------------- 
       SECTION : CONTACT 
@@ -733,19 +1159,19 @@ d’activités.</span></a></li>
 				<div class="title">Contribution Photo</div>
 			</figcaption>
 		</figure> 
-		
+
+        <img src="images/picture-36.jpg" alt="Rdd09" width="200" align="right"/>
 		
 	    </div>
 	    
 	    <div class="tab-content" id="contact2">
 	    
-	    	<p><a href="http://www.mines.inpl-nancy.fr">École des Mines de Nancy</a></p><br/>
-
-		<p>Paul Leiritz, <em>responsable Communication</em> à l'Ecole</p>
-		<p><a href="mailto:Paul.Leiritz@mines.inpl-nancy.fr?Subject=RDD09">Paul.Leiritz@mines.inpl-nancy.fr</a></p>
-		<p>Téléphone : +33 (0)3 83 58 43 10 </p>
+    	<p><a href="http://www.mines.inpl-nancy.fr">École des Mines de Nancy</a></p>
+		<p>Paul Leiritz, <em>responsable Communication</em> à l'Ecole<br>
+		<a href="mailto:Paul.Leiritz@mines.inpl-nancy.fr?Subject=RDD09">Paul.Leiritz@mines.inpl-nancy.fr</a><br>
+		Téléphone : +33 (0)3 83 58 43 10 </p>
 		<figure>
-			<img src="images/ecoleMines_petit.jpg" alt="Ecole des Mines de Nancy" />
+			<img src="images/artem.jpg" alt="Ecole des Mines de Nancy" />
 		</figure>
 	    
 	    </div>
@@ -760,9 +1186,12 @@ d’activités.</span></a></li>
     </section> <!--end section-->
   </div>
 </div>
+
+
 <script type="text/javascript" src="js/jquery-1.4.3.min.js"></script> 
 <script type="text/javascript" src="js/jquery_003.js"></script> 
 <script type="text/javascript" src="js/jquery.js"></script> 
+
 
 <!-- The JavaScript --> 
 <script type="text/javascript">
@@ -1057,6 +1486,7 @@ d’activités.</span></a></li>
 			});
 		});
 </script>
+
 
 </body>
 </html>
