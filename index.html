@@ -12,6 +12,7 @@
 <link href="css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 
+
 <!-- lecteur video -->
 <link rel="stylesheet" type="text/css" href="shadowbox.css">
 <script type="text/javascript" src="js/shadowbox.js"></script>
@@ -27,7 +28,7 @@ Shadowbox.init({
 });
 
 function video_tag_auto(){
-  	 Shadowbox.open({
+  	Shadowbox.open({
         player:     'swf',
         content:    'trailer.swf',
         height:     470,
@@ -42,7 +43,6 @@ function video_tag_auto(){
 	TagCanvas.outlineThickness='10';
 	TagCanvas.initial= [0.3,0.3];
 	TagCanvas.Start('myCanvas');
-	TagCanvas.noSelect='false';
 }
 
 setTimeout(Shadowbox.close,102000);
@@ -71,10 +71,13 @@ setTimeout(Shadowbox.close,102000);
 var slide_auto=true;
 	   setInterval("if(slide_auto==true){document.getElementById(\"suivant\").click();}",3000);
 </script>
+
+
  
 </head>
 
-<body onLoad="video_tag_auto();">
+//<body onLoad="video_tag_auto();">
+<body>
 <div id="page">
   <aside id="sidebar">
     <nav>
@@ -181,8 +184,17 @@ var slide_auto=true;
        <!--------------- 
       LANDING TEXT 
       ----------------->
-     <!-- lecture vidéo -->
-		<p style="color:#C00;font-weight:bold">Nous vous conseillons de réserver très vite votre chambre d'hôtel : un évènement sportif d'ampleur a lieu à Nancy le même week-end. Plus d'infos sur les hôtels <a href="index.html#guide">ici</a></p>
+
+
+<div class="demo-wrap" align="center">     
+     <ul id="slider1" >
+  <li style="color:#C00;font-weight:bold;margin-left:0px;margin-right:110px;text-align:justify">Nous vous conseillons de réserver très vite votre chambre d'hôtel : un<br> évènement sportif d'ampleur a lieu à Nancy le même week-end. <br>Plus d'infos sur les hôtels <a href="index.html#guide">ici</a></li>
+  <li style="color:#C00;font-weight:bold;margin-left:-100px;margin-right:110px;text-align:justify">Les élèves de la promotion 2009 pourront loger dans les colocations des <br>différents mineurs présents sur Nancy. Dès fin Août nous sonderons les <br>élèves pour déterminer les places disponibles.</li>
+</ul>
+</div>
+<br>
+
+		
       <p>
       La cérémonie de remise des diplômes de la promotion 2009 FICM et FIMGP des Mines de Nancy aura lieu le <strong>Samedi 22 Septembre 2012</strong> au sein du prestigieux Palais des Congrès de Nancy.
       </p>
@@ -200,20 +212,20 @@ var slide_auto=true;
       <div id="myCanvasContainer" align="center">
          <canvas width="600" height="300" id="myCanvas">
           <ul>
-           <li><a href="index.html#home">RDD09</a></li>
-           <li><a href="index.html#home">180 diplômés</a></li>
-           <li><a href="index.html#home">ARTEM</a></li>
-           <li><a href="index.html#home">22 Septembre</a></li>
-           <li><a href="index.html#home">Last JTM Ever</a></li>
-           <li><a href="index.html#home">BPE</a></li>
-           <li><a href="index.html#home">Gros Lézard</a></li>
-           <li><a href="index.html#home">Poï Poï</a></li>
-           <li><a href="index.html#home">Super Fanfare</a></li>
-           <li><a href="index.html#home">Joli joli joli</a></li>
-           <li><a href="index.html#home">Souvenirs</a></li>
-           <li><a href="index.html#home">Retrouvailles</a></li>
-           <li><a href="index.html#home">Diplômes</a></li>
-           <li><a href="index.html#home">Pipot</a></li>          
+           <li><a href="#home">RDD09</a></li>
+           <li><a href="#home">180 diplômés</a></li>
+           <li><a href="#home">ARTEM</a></li>
+           <li><a href="#home">22 Septembre</a></li>
+           <li><a href="#home">Last JTM Ever</a></li>
+           <li><a href="#home">BPE</a></li>
+           <li><a href="#home">Gros Lézard</a></li>
+           <li><a href="#home">Poï Poï</a></li>
+           <li><a href="#home">Super Fanfare</a></li>
+           <li><a href="#home">Joli joli joli</a></li>
+           <li><a href="#home">Souvenirs</a></li>
+           <li><a href="#home">Retrouvailles</a></li>
+           <li><a href="#home">Diplômes</a></li>
+           <li><a href="#home">Pipot</a></li>          
           </ul>
          </canvas>
     </div>
@@ -355,10 +367,11 @@ var slide_auto=true;
             <font color="#FFBB2F" style="font-weight:bold">10h50 </font>  Présentation de Mines Nancy Alumni par M. Zettwoog<br>
             <font color="#FFBB2F" style="font-weight:bold">11h15</font>  Temps de Mines Nancy Alumni, visite du campus et verre de l'amitié offert par la Mairie</li>
 			<li><h4 style="margin-bottom:0px">Temps libre</h4></li>
+            <li>Prévoir 30 minutes de marche entre ARTEM et le palais des Congrès</li>
             <li><h4 style="margin-bottom:0px">Cérémonie de Remise des Diplômes</h4></li>
-            <li><font color="#FFBB2F" style="font-weight:bold">De 15h à 19h </font><a href="https://maps.google.fr/maps?q=Palais+des+Congres&hl=fr&ll=48.687731,6.180067&spn=0.008598,0.019784&cid=15521831503058633059&gl=FR&t=m&z=16&iwloc=A" target="_blank"	>au Palais des Congrès de Nancy <img src="images/map.png"/ height="20"></a></li>
+            <li><font color="#FFBB2F" style="font-weight:bold">De 15h à 20h </font><a href="https://maps.google.fr/maps?q=Palais+des+Congres&hl=fr&ll=48.687731,6.180067&spn=0.008598,0.019784&cid=15521831503058633059&gl=FR&t=m&z=16&iwloc=A" target="_blank"	>au Palais des Congrès de Nancy <img src="images/map.png"/ height="20"></a></li>
 
-			<li><h4>Cockatil dinatoire</h4>
+			<li><h4>Cocktail dinatoire</h4>
 			<font color="#FFBB2F" style="font-weight:bold">De 20h00 à 22h00 </font><a href="https://maps.google.fr/maps?q=Palais+des+Congres&hl=fr&ll=48.687731,6.180067&spn=0.008598,0.019784&cid=15521831503058633059&gl=FR&t=m&z=16&iwloc=A" target="_blank"	>au Palais des Congrès de Nancy <img src="images/map.png"/ height="20"></a>
             <font style="font-style:italic">(Sur invitation)</font></li>
 
@@ -554,7 +567,7 @@ var slide_auto=true;
         
         <h5>Parcours</h5>
         <ul style="list-style-type:none;text-align:justify">
-            <li>Philippe Guillemot entre à l’école des Mines de Nancy en 1979. Diplômé en 1983, il débute sa carrière chez Michelin où il occupera différentes fonctions de Direction liées à la Qualité et à la Production, au Canada, en France puis en Italie.</li><br>
+            <li>Philippe Guillemot entre à l’école des Mines de Nancy en 1979. Diplômé en 1982, il débute sa carrière chez Michelin où il occupera différentes fonctions de Direction liées à la Qualité et à la Production, au Canada, en France puis en Italie.</li><br>
             <li>En 1981, après avoir obtenu un MBA à Boston, il devient consultant pour le secteur automobile dans le cabinet Booz-Allen & Hamilton, à Paris.</li><br>
             <li>En 1983, il réintègre le groupe Michelin comme Responsable Industriel et devient, trois ans plus tard, membre du Conseil Exécutif en tant que Vice-président Exécutif du groupe Qualité. </li><br>
             <li>Sa carrière managériale ne s'arrête pas là puisqu'il rejoint le groupe Valeo en 1998 en qualité de Vice-président de l’activité refroidissement moteur.</li><br>
@@ -565,11 +578,11 @@ var slide_auto=true;
         
         <div class="tab-content" id="fimgp">
         <h3>Yves Bailly</h3>
-        <h6>Président-directeur Général de Norske Skob Golbey SAS (NSG)<br>
+        <h6>Président-directeur Général de Norske Skog Golbey SAS (NSG)<br>
         Promotion Alès 1992  </h6>
         <h5>Parcours</h5>
         <ul style="list-style-type:none;text-align:justify">        
-        <li>Yves BAILLY (1961) est actuellement le Président-directeur Général de la Société Norske Skob Golbey SAS (NSG), filiale du groupe norvégien Norske Skogindustrier (NSI). NSG, dont le siège social se trouve à Epinal dans les Vosges, fabrique du papier journal à partir de bois et de papiers récupérés.</li><br>
+        <li>Yves BAILLY (1961) est actuellement le Président-directeur Général de la Société Norske Skog Golbey SAS (NSG), filiale du groupe norvégien Norske Skogindustrier (NSI). NSG, dont le siège social se trouve à Epinal dans les Vosges, fabrique du papier journal à partir de bois et de papiers récupérés.</li><br>
         
         <li>Titulaire d’un diplôme d’ingénieur (Ecole des Mines) et d’un MBA (HEC Paris), il a rejoint la société Norske Skog Golbey en 1992 et y a occupé plusieurs fonctions, entre autres Directeur de production et Directeur Général Adjoint. En 2005, il est nommé Vice Président et Directeur Technique de Pan Asia à Séoul et depuis 2006, il dirige la société Norske Skog Golbey.</li><br>
         
@@ -1203,6 +1216,7 @@ septembre, un brunch est organisé par l’association. Cet événement sera une
 <script type="text/javascript" src="js/jquery.js"></script> 
 
 
+
 <!-- The JavaScript --> 
 <script type="text/javascript">
 			/*
@@ -1517,6 +1531,21 @@ septembre, un brunch est organisé par l’association. Cet événement sera une
 		});
 </script>
 
+<!-- slider de texte -->
+<script src="js/jquery.bxSlider.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#slider1').bxSlider({
+    auto: true,
+    prevImage:'images/red_prev.png',
+    nextImage:'images/red_next.png',
+	pause:'5000',
+	pager:'true',
+	pagerType:'short',
+  	});
+  });
+</script>
 
+<!-- fin du slider de texte -->
 </body>
 </html>

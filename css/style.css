@@ -859,6 +859,46 @@ figure figcaption{
 	width:80px;
 }
 
+
+.demo-wrap .bx-wrapper {
+	width: 550px;
+}
+
+.demo-wrap .bx-window {
+	width: 490px;
+}
+
+.demo-wrap .bx-prev {
+	position: absolute;
+	top: -0px;
+	left: -40px;
+	width: 31px;
+	height: 31px;
+	text-indent: -999999px;
+	background: url(../images/red_prev.png) no-repeat 0 -30px;
+}
+
+.demo-wrap .bx-next {
+	position: absolute;
+	top: -0px;
+	right: -50px;
+	width: 31px;
+	height: 31px;
+	text-indent: -999999px;
+	background: url(../images/red_next.png) no-repeat 0 -30px ;
+}
+
+.demo-wrap .bx-pager {
+	text-align:right;
+	font-weight:bold;
+}
+
+
+.demo-wrap .bx-next:hover,
+.demo-wrap .bx-prev:hover {
+	background-position: 0 0;
+}
+
 /* Espace Elèves */
 #espace_eleves {
 	margin-top:15px;
