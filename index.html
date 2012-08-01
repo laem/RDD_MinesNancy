@@ -137,7 +137,7 @@ var slide_auto=true;
         <!-- Dot list with thumbnail preview -->
         <ul class="ps_nav">
           <li class="selected" id="premier_slide"><a href="images/slide/slide_003.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
-		  <li ><a href="images/slide/slide_002.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
+		  <li><a href="images/slide/slide_002.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
           <li ><a href="images/slide/slide_001.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
 		  <li ><a href="images/slide/slide_004.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
           <li ><a href="images/slide/slide_005.jpg" rel="images/slide/slide_001.jpg">Nancy</a></li>
@@ -1457,12 +1457,9 @@ septembre, un brunch est organisé par l’association. Cet événement sera une
 						if(current > 0){
 							$links.eq(current-1).trigger('click');
 						}
-						if (backLoop == 1) {
+						else{
 							$links.eq(total_images-1).trigger('click');
-							backLoop = 0;
-						}
-						if (current == 0) {
-							backLoop = 1;
+							
 						}
 					}
 			});
