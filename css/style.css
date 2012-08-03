@@ -861,11 +861,11 @@ figure figcaption{
 
 
 .demo-wrap .bx-wrapper {
-	width: 550px;
+	/*width: 550px;*/
 }
 
 .demo-wrap .bx-window {
-	width: 490px;
+	/*width: 490px;*/
 }
 
 .demo-wrap .bx-prev {
@@ -875,18 +875,30 @@ figure figcaption{
 	width: 31px;
 	height: 31px;
 	text-indent: -999999px;
-	background: url(../images/red_prev.png) no-repeat 0 -30px;
+	/*background: url(../images/red_prev.png) no-repeat 0 -30px;*/
 }
 
 .demo-wrap .bx-next {
 	position: absolute;
-	top: -0px;
+	top: 64px;
+	right: -30px;
+	width: 15px;
+	height:15px;
+	text-indent: -999999px;
+	background: url(../images/red_next_petite.png) no-repeat 0 -15px ;
+}
+
+/*
+.demo-wrap .bx-next {
+	position: absolute;
+	top: 0px;
 	right: -50px;
 	width: 31px;
 	height: 31px;
 	text-indent: -999999px;
 	background: url(../images/red_next.png) no-repeat 0 -30px ;
 }
+*/
 
 .demo-wrap .bx-pager {
 	text-align:right;
