@@ -280,7 +280,7 @@ ul.ps_nav li.ps_preview span{
 
 /* ----sections---- */
 
-#home, #calendrier, #guide, #contact, #promo, #sponsor, #artem, #alumni{
+#home, #calendrier, #guide, #contact, #promo, #sponsor, #artem, #alumni, #invitation{
 	position:relative;
 	margin-bottom:500px;
 	float:left;
