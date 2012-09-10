@@ -313,10 +313,9 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
     <br /><br />
     <input type="hidden" name="identifiant" value="<?php echo $_POST['eleve'];?>" />
-    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" /><br />
-   <br />
-    <button name="supprimer" id="supprimer" onclick="supprimer();" value="-1"></button>
-    	<button name="ajouter" id="ajouter" onclick="ajouter();" value="+1"></button>
+    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" />
+    <button name="supprimer" id="supprimer" onclick="supprimer();">-1</button>
+    	<button name="ajouter" id="ajouter" onclick="ajouter();">+1</button><br />
         <input type="submit" value="Modifier" name="etat2" class="submit" />
         
         <?php
