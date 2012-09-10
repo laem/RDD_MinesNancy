@@ -317,7 +317,7 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
     <input type="button" name="btn_supprimer" id="btn_supprimer" onClick="supprimer();" value="-1" width="10" class="submit">
     <input type="button" name="btn_ajouter" id="btn_ajouter" onClick="ajouter();" value="+1" width="10" class="submit"><br />
     <input type="submit" value="Modifier" name="etat2" class="submit" />
-    <a href="http://www.unitag.fr/qrcode">Générer QR Code</a>
+    <br /><a href="http://www.unitag.fr/qrcode">Générer QR Code</a>
         
         <?php
 }elseif(isset($_POST['etat2'])){
