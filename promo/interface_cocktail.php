@@ -11,6 +11,21 @@ if(isset($_POST["login"])){
 
 
 ?>
+
+ <script language="javascript">
+
+		function supprimer() {
+			if(document.getElementById("etat").value>0){
+			document.getElementById("etat").value=document.getElementById("etat").value-1;
+			}else{
+				alert("Plus d'entrées disponibles");
+			}
+		}
+		
+		function ajouter() {
+			document.getElementById("etat").value=document.getElementById("etat").value+1;
+		}
+</script>
     
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html lang="fr"> 
@@ -270,7 +285,6 @@ while($row = mysql_fetch_array($req)){
 	echo '<td>';
 	echo $nbr;
 	echo '</td>';
-	echo '<td>';
 	echo '</tr>';
 }
 
@@ -299,7 +313,7 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
     <br /><br />
     <input type="hidden" name="identifiant" value="<?php echo $_POST['eleve'];?>" />
-    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" /><br />
+    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" /><br /><button name="ajouter" id="ajouter" onclick="ajouter();" value="+1"><input type="text" name="etat" id="etat" /><br /><button name="supprimer" id="supprimer" onclick="supprimer();" value="-1">
         <input type="submit" value="Modifier" name="etat2" class="submit" />
         
         <?php
