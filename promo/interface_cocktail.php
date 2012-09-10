@@ -256,6 +256,21 @@ if((isset($_POST['connection']) && $_POST['mdp']=="rddream_best") || isset($_POS
     
     <?php
     while($row = mysql_fetch_array($req)) {
+		$num=rand(100000000,999999999);
+		
+		$sql2="Select * from espace_eleve where code=".$num;
+		$req2=mysql_query($sql2) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+		
+		if(mysql_num_rows($req2)!=0){
+		
+			$sql2="Update espace_perso set code=".$num;
+			$req2=mysql_query($sql2) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+			
+		}else{
+			$sql2="Update espace_perso set code=".rand(100000000,999999999);
+			$req2=mysql_query($sql2) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+		}
+	
       		echo "<option value='".$row['identifiant']."'>".$row['nom']."</option>";
       	} ?>
         </select>
