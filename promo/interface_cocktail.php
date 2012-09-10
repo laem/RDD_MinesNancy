@@ -313,9 +313,9 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
     <br /><br />
     <input type="hidden" name="identifiant" value="<?php echo $_POST['eleve'];?>" />
-    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" value="<?php echo mysql_result($req,0,'nombre_entree'); ?>" />
-    <input type="button" name="supprimer" id="supprimer" onClick="supprimer();" value="-1" width="10">
-    <input type="button" name="ajouter" id="ajouter" onClick="ajouter();" value="+1" width="10"><br />
+    <label for="eleve">Modifier le nombre d'entrées : </label><input type="text" name="etat" id="etat" value="<?php echo mysql_result($req,0,'nombre_entree'); ?>" /><br />
+    <input type="button" name="btn_supprimer" id="btn_supprimer" onClick="supprimer();" value="-1" width="10">
+    <input type="button" name="btn_ajouter" id="btn_ajouter" onClick="ajouter();" value="+1" width="10"><br />
     <input type="submit" value="Modifier" name="etat2" class="submit" />
         
         <?php
