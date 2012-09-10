@@ -234,7 +234,7 @@ if((isset($_POST['connection']) && $_POST['mdp']=="rddream_best") || isset($_POS
 ?>
 	<br><br>
 	
-    <form name="espace_perso" method="post" action="recap.php">
+    <form name="espace_perso" method="post" action="interface_cocktail.php">
             
     <label for="eleve">Modifier l'élève suivant : </label><br />
     <select name="eleve" style="display: compact;">
@@ -291,7 +291,7 @@ while($row = mysql_fetch_array($req)){
 	$sql="Select * from espace_eleve where identifiant='".$_POST['eleve']."'";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
-<form name="espace_perso" method="post" action="recap.php">
+<form name="espace_perso" method="post" action="interface_cocktail.php">
     Elève choisi : <?php echo mysql_result($req,0,'nom'); ?>
     <br />
     Nombre d'entrées restantes : <?php 
@@ -308,7 +308,7 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	$sql="update espace_eleve set nombre_entree='".$_POST['etat']."' where identifiant='".$_POST['identifiant']."'";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
-<form name="espace_perso" method="post" action="recap.php">
+<form name="espace_perso" method="post" action="interface_cocktail.php">
 Elève mis à jour !<br />
  <input type="submit" value="Retour" name="retour" class="submit" />
         
@@ -316,7 +316,7 @@ Elève mis à jour !<br />
 }
 else{
 ?>
-<form name="espace_perso" method="post" action="recap.php">
+<form name="espace_perso" method="post" action="interface_cocktail.php">
             <label for="mdp">Mot de passe :</label>
 			<input type="password" name="mdp" value="" />
            	<br>            
