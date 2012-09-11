@@ -410,7 +410,16 @@ while($row = mysql_fetch_array($req)){
 	echo $row['code'];
 	echo '</td>';
 	echo '<td id="nbr">';
-	echo $row['nombre_entree'];
+	if($row['nombre_entree']==0){
+		echo '<font color="#FF8000" size="+2"><b>';
+		echo $row['nombre_entree'];
+		echo '</b></font>';
+	}
+	if($row['nombre_entree']<0){
+		echo '<font color="#FF0000" size="+2"><b>';
+		echo $row['nombre_entree'];
+		echo '</b></font>';
+	}
 	echo '</td>';
 	echo '<td>';
 	echo '<input type="submit" value="'.$row['identifiant'].'" name="ajouter" class="submit" />';
@@ -426,6 +435,7 @@ while($row = mysql_fetch_array($req)){
 }
 
 ?>
+
 </table>
 </center>
 </form>
