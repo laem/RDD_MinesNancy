@@ -415,10 +415,12 @@ while($row = mysql_fetch_array($req)){
 		echo $row['nombre_entree'];
 		echo '</b></font>';
 	}
-	if($row['nombre_entree']<0){
+	elseif($row['nombre_entree']<0){
 		echo '<font color="#FF0000" size="+2"><b>';
 		echo $row['nombre_entree'];
 		echo '</b></font>';
+	}else{
+		echo $row['nombre_entree'];
 	}
 	echo '</td>';
 	echo '<td>';
