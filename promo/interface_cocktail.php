@@ -272,7 +272,7 @@ if((isset($_POST['connection']) && $_POST['mdp']=="rddream_best") || isset($_POS
         
         <form name="espace_perso" method="post" action="interface_cocktail.php">
         <br /><label for="recherche">Recherche :</label>
-        <input type="text" name="recherche" id="recherche" value="" />
+        <input type="text" name="recherche" id="recherche" value=""  />
         <input type="submit" value="Rechercher" name="Rechercher" class="submit" />
         </form>
         <br /><br />
@@ -418,7 +418,7 @@ while($row = mysql_fetch_array($req)){
 	echo '<input type="image" value="'.$row['identifiant'].'" name="ajouter" class="submit" src="pdf/plus.png"  onclick="espace_perso.submit();"/>';*/
 	echo '</td>';
 	echo '<td>';
-	echo '<input type="button" value="'.$row['identifiant'].'" name="supprimer" class="submit" onClick="supprimer2();"/>';
+	echo '<input type="button" value="'.$row['identifiant'].'" name="supprimer" class="submit"/>';
 	/*echo '<img src="pdf/moins.png"/>';
 	echo '<input type="image" value="'.$row['identifiant'].'" name="supprimer" class="submit" src="pdf/moins.png"  onclick="espace_perso.submit();"/>';*/
 	echo '</td>';
