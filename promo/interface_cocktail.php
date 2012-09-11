@@ -418,7 +418,7 @@ while($row = mysql_fetch_array($req)){
 	echo '<input type="image" value="'.$row['identifiant'].'" name="ajouter" class="submit" src="pdf/plus.png"  onclick="espace_perso.submit();"/>';*/
 	echo '</td>';
 	echo '<td>';
-	echo '<input type="button" value="'.$row['identifiant'].'" name="supprimer" class="submit"/>';
+	echo '<input type="submit" value="'.$row['identifiant'].'" name="supprimer" class="submit"/>';
 	/*echo '<img src="pdf/moins.png"/>';
 	echo '<input type="image" value="'.$row['identifiant'].'" name="supprimer" class="submit" src="pdf/moins.png"  onclick="espace_perso.submit();"/>';*/
 	echo '</td>';
