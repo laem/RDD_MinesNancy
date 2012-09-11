@@ -22,6 +22,14 @@ if(isset($_POST["login"])){
 			}
 		}
 		
+		function supprimer2() {
+			if(document.getElementById("nbr").innerHTML>0){
+			document.getElementById("espace_perso").submit;
+			}else{
+				alert("Plus d'entrées disponibles");
+			}
+		}
+		
 		function ajouter() {
 			document.getElementById("etat").value=document.getElementById("etat").value-(-1);
 		}
@@ -260,6 +268,14 @@ if((isset($_POST['connection']) && $_POST['mdp']=="rddream_best") || isset($_POS
       	} ?>
         </select>
         <input type="submit" value="Modifier" name="modifier" class="submit" />
+        </form>
+        
+        <form name="espace_perso" method="post" action="interface_cocktail.php">
+        <br /><label for="recherche">Recherche :</label>
+        <input type="text" name="recherche" id="recherche" value="" />
+        <input type="submit" value="Rechercher" name="Rechercher" class="submit" />
+        </form>
+        <br /><br />
 <center>
     <table>
     <tr>
@@ -347,9 +363,73 @@ $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 	?>
 <form name="espace_perso" method="post" action="interface_cocktail.php">
 Elève mis à jour !<br />
- <input type="submit" value="Retour" name="retour" class="submit" />
+ <input type="submit" value="Retour" name="retour" class="submit"/>
         
         <?php
+}elseif(isset($_POST['recherche'])){
+	
+	if(isset($_POST['ajouter'])){
+		$sql="Update espace_eleve set nombre_entree=nombre_entree+1 where identifiant='".$_POST['ajouter']."'";
+		$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+	}
+	if(isset($_POST['supprimer'])){
+		$sql="Update espace_eleve set nombre_entree=nombre_entree-1 where identifiant='".$_POST['supprimer']."'";
+		$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+	}
+	
+	?>
+    <form name="espace_perso2" method="post" action="interface_cocktail.php">
+        <br /><label for="recherche">Recherche :</label>
+        <input type="text" name="recherche" id="recherche" value="" />
+        <input type="submit" value="Rechercher" name="Rechercher" class="submit" />
+        </form>
+        <br /><br />
+    <form id="espace_perso" name="espace_perso" method="post" action="interface_cocktail.php">
+    <input type="hidden" name="recherche" value="<?php echo $_POST['recherche']; ?>"/>
+	<center>
+    <table>
+    <tr>
+    <td>Nom</td>
+    <td>Code</td>
+    <td>Nombre d'entrées restantes</td>
+    <td><img src="pdf/plus.png" /></td>
+    <td><img src="pdf/moins.png" /></td>
+    </tr>
+            <br>  
+            <?php    
+$total_entrees=NULL;
+$sql="Select * from espace_eleve where nom like '%".$_POST['recherche']."%'order by nom asc";
+$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+while($row = mysql_fetch_array($req)){	
+		
+	echo '<tr>';
+	echo '<td>';
+	echo $row['nom'];
+	echo '</td>';
+	echo '<td>';
+	echo $row['code'];
+	echo '</td>';
+	echo '<td id="nbr">';
+	echo $row['nombre_entree'];
+	echo '</td>';
+	echo '<td>';
+	echo '<input type="submit" value="'.$row['identifiant'].'" name="ajouter" class="submit" />';
+	/*echo '<img src="pdf/plus.png"/>';
+	echo '<input type="image" value="'.$row['identifiant'].'" name="ajouter" class="submit" src="pdf/plus.png"  onclick="espace_perso.submit();"/>';*/
+	echo '</td>';
+	echo '<td>';
+	echo '<input type="button" value="'.$row['identifiant'].'" name="supprimer" class="submit" onClick="supprimer2();"/>';
+	/*echo '<img src="pdf/moins.png"/>';
+	echo '<input type="image" value="'.$row['identifiant'].'" name="supprimer" class="submit" src="pdf/moins.png"  onclick="espace_perso.submit();"/>';*/
+	echo '</td>';
+	echo '</tr>';
+}
+
+?>
+</table>
+</center>
+</form>
+<?php
 }
 else{
 ?>
