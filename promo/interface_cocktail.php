@@ -24,7 +24,7 @@ if(isset($_POST["login"])){
 		
 		function supprimer2() {
 			if(document.getElementById("nbr").innerHTML>0){
-			document.getElementById("espace_perso").submit;
+				document.forms["espace_perso"].submit();
 			}else{
 				alert("Plus d'entrées disponibles");
 			}
