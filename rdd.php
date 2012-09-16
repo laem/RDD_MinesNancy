@@ -3,8 +3,8 @@
 	$db = mysql_connect($sql_url,$sql_login,$sql_pass) or die('Erreur de connexion '.mysql_error());
 	mysql_select_db($base,$db) or die('Erreur de selection de la db '.mysql_error());
 	   
-    //if(isset($_POST['number'])) {
-    	{$_POST['number']="10";
+    if(isset($_POST['number'])) {
+    	//{$_POST['number']="10";
 		//Début de génération du ficher xml
         echo '<?xml version="1.0"?>'."\n";
         
@@ -23,7 +23,7 @@
         if($entree==-1){
 			error(3);
 		}else if($entree[0]>0){
-			echo '	<result value="Bonjour M/Mme '.$entree[1].' ;)\n'.($entree[0]-1).' invitation(s) restante(s)"'."/> \n ";
+			echo '	<result value="Bonjour M/Mme '.$entree[1].' ;). '.($entree[0]-1).' invitation(s) restante(s)"'."/> \n ";
 			echo "</result>";
 			$sql="Update espace_eleve set nombre_entree=nombre_entree-1 where code='".$code."'";
 			$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
