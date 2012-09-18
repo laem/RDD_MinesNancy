@@ -286,7 +286,7 @@ if((isset($_POST['connection']) && $_POST['mdp']=="rddream_best") || isset($_POS
             <br>  
             <?php    
 $total_entrees=NULL;
-$sql="Select * from espace_eleve order by nom asc";
+$sql="Select * from espace_eleve where nombre_entree>0 order by nom asc";
 $req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 while($row = mysql_fetch_array($req)){
 		$num=NULL;
