@@ -26,7 +26,7 @@
 			echo '	<result value="Bonjour M/Mme '.$entree[1].' ;). '.($entree[0]-1).' invitation(s) restante(s)"'."/> \n ";
 			echo "</result>";
 			$sql="Update espace_eleve set nombre_entree=nombre_entree-1 where code='".$code."'";
-			//$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
+			$req=mysql_query($sql) or die($req.' Erreur SQL !'.$sql.'<br />'.mysql_error());
 		}else if($entree[0]==0){
 			echo '	<result2 value="'.$entree[1].'"'."/> \n ";
 			echo "</result2>";
